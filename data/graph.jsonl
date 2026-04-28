@@ -318,7 +318,7 @@
 {"id": "DISC-318-typed-shared-backlog", "type": "discovery", "label": "DISC-318-typed-shared-backlog", "status": "hypothesis"}
 {"id": "DISC-319-git-event-bus", "type": "discovery", "label": "DISC-319-git-event-bus", "status": "hypothesis"}
 {"id": "DISC-333", "type": "discovery", "label": "DISC-333", "status": "registered"}
-{"id": "DISC-331-ip-protection", "type": "discovery", "label": "DISC-331-ip-protection", "status": "researched"}
+{"id": "DISC-331-d", "type": "discovery", "label": "DISC-331-d", "status": "researched"}
 {"id": "DISC-247-R", "type": "discovery", "label": "DISC-247-R", "status": "registered"}
 {"id": "DISC-320", "type": "discovery", "label": "DISC-320", "status": "registered"}
 {"id": "DISC-321", "type": "discovery", "label": "DISC-321", "status": "registered"}
@@ -346,7 +346,7 @@
 {"id": "DISC-327-contribution-gate", "type": "discovery", "label": "DISC-327-contribution-gate", "status": "hypothesis"}
 {"id": "DISC-328-memory-access-control", "type": "discovery", "label": "DISC-328-memory-access-control", "status": "hypothesis"}
 {"id": "DISC-329-immutable-origin-audit-pattern", "type": "discovery", "label": "DISC-329-immutable-origin-audit-pattern", "status": "hypothesis"}
-{"id": "DISC-331-thermal-substrate-computing", "type": "discovery", "label": "DISC-331-thermal-substrate-computing", "status": "hypothesis"}
+{"id": "DISC-331-c", "type": "discovery", "label": "DISC-331-c", "status": "hypothesis"}
 {"id": "SPEC-325-A", "type": "spec", "label": "SPEC-325-A", "status": "researched"}
 {"id": "DISC-338-node-occupancy-protocol", "type": "discovery", "label": "DISC-338-node-occupancy-protocol", "status": "hypothesis"}
 {"id": "DISC-332-k-source-anonymity-error-correction", "type": "discovery", "label": "DISC-332-k-source-anonymity-error-correction", "status": "hypothesis"}

@@ -581,8 +581,8 @@
 {"source": "DISC-329-immutable-origin-audit-pattern", "target": "DISCOVERY-083", "type": "derived_from"}
 {"source": "DISC-330", "target": "DISCOVERY-083", "type": "derived_from"}
 {"source": "DISC-331", "target": "DISCOVERY-083", "type": "derived_from"}
-{"source": "DISC-331-ip-protection", "target": "DISCOVERY-083", "type": "derived_from"}
-{"source": "DISC-331-thermal-substrate-computing", "target": "DISCOVERY-083", "type": "derived_from"}
+{"source": "DISC-331-d", "target": "DISCOVERY-083", "type": "derived_from"}
+{"source": "DISC-331-c", "target": "DISCOVERY-083", "type": "derived_from"}
 {"source": "DISC-332", "target": "DISCOVERY-083", "type": "derived_from"}
 {"source": "DISC-332-k-source-anonymity-error-correction", "target": "DISCOVERY-083", "type": "derived_from"}
 {"source": "DISC-333-issue-driven-mago-instantiation", "target": "DISCOVERY-083", "type": "derived_from"}
