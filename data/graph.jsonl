@@ -1,0 +1,392 @@
+{"id": "SPEC-001", "type": "spec", "label": "Avaliador de Conhecimento", "status": "ready"}
+{"id": "SPEC-002", "type": "spec", "label": "Pesquisa e ValidaÃ§Ã£o", "status": "ready"}
+{"id": "SPEC-003", "type": "spec", "label": "Motor de Spec", "status": "ready"}
+{"id": "SPEC-004", "type": "spec", "label": "Gerador de Artefatos", "status": "ready"}
+{"id": "SPEC-005", "type": "spec", "label": "Motor de Eventos", "status": "ready"}
+{"id": "SPEC-006", "type": "spec", "label": "MÃ©tricas de SessÃ£o", "status": "ready"}
+{"id": "SPEC-007", "type": "spec", "label": "GestÃ£o de SessÃ£o e Cache", "status": "ready"}
+{"id": "SPEC-008", "type": "spec", "label": "Bootstrap de InstÃ¢ncia", "status": "ready"}
+{"id": "DISCOVERY-001", "type": "discovery", "label": "Componentes Fundamentais", "status": "draft"}
+{"id": "DISCOVERY-007-SSP", "type": "discovery", "label": "Session Optimization - SSP (retroactive)", "status": "researched"}
+{"id": "DISCOVERY-008", "type": "discovery", "label": "Business Model", "status": "gap"}
+{"id": "DISCOVERY-010", "type": "discovery", "label": "Gap: Stable Milestone Identification", "status": "partial"}
+{"id": "DISCOVERY-012", "type": "discovery", "label": "Design Session Backlog", "status": "registered"}
+{"id": "DISCOVERY-014", "type": "discovery", "label": "Process Antifragility Layers", "status": "researched"}
+{"id": "DISCOVERY-015", "type": "discovery", "label": "Confidence Threshold Model", "status": "researched"}
+{"id": "DISCOVERY-020", "type": "discovery", "label": "MCL Governance Gate", "status": "researched"}
+{"id": "DISCOVERY-021", "type": "discovery", "label": "Bootstrap Cross-Domain Evidence", "status": "researched"}
+{"id": "DISCOVERY-022", "type": "discovery", "label": "Circuit Breaker Calibration", "status": "researched"}
+{"id": "DISCOVERY-023", "type": "discovery", "label": "Observability KPI Baselines", "status": "researched"}
+{"id": "DISCOVERY-024", "type": "discovery", "label": "IP Protection Strategy", "status": "researched"}
+{"id": "DISCOVERY-032", "type": "discovery", "label": "Quantum Biology Ã- QEC Cross-Domain Synthesis", "status": "researched"}
+{"id": "DISCOVERY-041", "type": "discovery", "label": "Zero-Cost Maternal Attribution by Egg Phenotype (KP007)", "status": "researched"}
+{"id": "DISCOVERY-031", "type": "discovery", "label": "Cross-Domain Search Protocol Gap", "status": "gap"}
+{"id": "L002", "type": "gap", "label": "Threshold Operacional de ConfianÃ§a", "status": "partial"}
+{"id": "L003", "type": "gap", "label": "HeranÃ§a de Lacunas entre InstÃ¢ncias", "status": "open"}
+{"id": "DISCOVERY-045", "type": "discovery", "label": "NASA Mars to Table Challenge (OQ-010)", "status": "registered"}
+{"id": "DISCOVERY-046", "type": "discovery", "label": "Claude Code Platform Feature Assessment", "status": "researched"}
+{"id": "DISCOVERY-047", "type": "discovery", "label": "Self-Detection via Sentinel Pattern", "status": "researched"}
+{"id": "SPEC-009", "type": "spec", "label": "System Health Check", "status": "ready"}
+{"id": "DISCOVERY-048", "type": "discovery", "label": "Hook Test Harness - Testability Before Production", "status": "researched"}
+{"id": "DISCOVERY-049", "type": "discovery", "label": "Antifragility Evidence: 5 Hook Bugs as P042 Validation", "status": "researched"}
+{"id": "DISCOVERY-050", "type": "discovery", "label": "Graph Scaling Strategy: Archive Pattern", "status": "researched"}
+{"id": "DISCOVERY-051", "type": "discovery", "label": "PostToolUse Payload Structure + GL-MS-01 Resolution via Transcript", "status": "researched"}
+{"id": "DISCOVERY-053", "type": "discovery", "label": "CEI Distributed Cluster Model: Parallel Exploration of Incompatible Solution Spa", "status": "researched"}
+{"id": "DISCOVERY-054", "type": "discovery", "label": "Outcome Invariant: CEI Third Measurement Layer", "status": "researched"}
+{"id": "DISCOVERY-057", "type": "discovery", "label": "Pre-LR-004 Hook Coverage Audit", "status": "researched"}
+{"id": "DISCOVERY-058", "type": "discovery", "label": "Pre-Epistemic Context Verification Layer", "status": "researched"}
+{"id": "DISCOVERY-059", "type": "discovery", "label": "BUG-C: total_cost_usd=0 despite transcript tokens available", "status": "researched"}
+{"id": "DISCOVERY-062", "type": "discovery", "label": "Parallel Session MVI design", "status": "researched"}
+{"id": "SPEC-010", "type": "spec", "label": "Parallel Session Protocol", "status": "ready"}
+{"id": "DISCOVERY-063", "type": "discovery", "label": "MCL Gate Protocol + Proportional Resilience (P037+P038)", "status": "researched"}
+{"id": "DISCOVERY-064", "type": "discovery", "label": "P007 Economic Cost Circuit Breaker for CEI", "status": "researched"}
+{"id": "DISCOVERY-065", "type": "discovery", "label": "Platform Degradation: First Real Fault-Tolerance Test (Natural Experiment)", "status": "researched"}
+{"id": "DISCOVERY-066", "type": "discovery", "label": "CEI Unified Health Monitor - design", "status": "researched"}
+{"id": "DISCOVERY-067", "type": "discovery", "label": "Node Capability Specialization - Design A", "status": "researched"}
+{"id": "DISCOVERY-068", "type": "discovery", "label": "ENAQT-Structured Noise for QAOA and Stabilizer Codes", "status": "researched"}
+{"id": "SPEC-011", "type": "spec", "label": "Unified Health Monitor", "status": "ready"}
+{"id": "DISCOVERY-071", "type": "discovery", "label": "CQW H2 Simulation Results: P1 Confirmed on SK Spin Glass, P2 Fails", "status": "researched"}
+{"id": "DISCOVERY-072", "type": "discovery", "label": "Shared Typed Backlog for the CEI Cluster", "status": "researched"}
+{"id": "SPEC-012", "type": "spec", "label": "Shared Typed Backlog", "status": "ready"}
+{"id": "DISCOVERY-073", "type": "discovery", "label": "Node Wake-up Mechanism for the CEI Cluster", "status": "researched"}
+{"id": "SPEC-013", "type": "spec", "label": "Node Wake-up Mechanism", "status": "ready"}
+{"id": "SPEC-014", "type": "spec", "label": "cluster.json Tracking Discipline", "status": "ready"}
+{"id": "SPEC-015", "type": "spec", "label": "wip.md Tracking Discipline - gitignore + template", "status": "ready"}
+{"id": "DISCOVERY-076", "type": "discovery", "label": "Mars to Table: Literature Summary + Paper Viability (OQ-010)", "status": "researched"}
+{"id": "DISCOVERY-078", "type": "discovery", "label": "Network Topologies with Anderson Localization That May Benefit from ENAQT", "status": "researched"}
+{"id": "DISCOVERY-079", "type": "discovery", "label": "Passive (Zero-Power) Cooling: Cross-Domain Analogy Survey", "status": "researched"}
+{"id": "DISCOVERY-080", "type": "discovery", "label": "Low-Cost Decentralized Desalination: Cross-Domain Analogy Survey", "status": "researched"}
+{"id": "DISCOVERY-081", "type": "discovery", "label": "Humidity-Gradient Energy Harvesting: Cross-Domain Survey + Meta-Observation", "status": "researched"}
+{"id": "DISCOVERY-082", "type": "discovery", "label": "Constraint Relaxation as a Universal Problem-Solving Pattern (P104 precursor)", "status": "researched"}
+{"id": "P104", "type": "paper", "label": "Constraint Relaxation: A Unified Cross-Domain Framework (DRAFT)", "status": "draft"}
+{"id": "P105", "type": "paper", "label": "Structural Hole Brokerage as a Universal Design Role (SLOT)", "status": "slot"}
+{"id": "P107", "type": "paper", "label": "Latency Hiding as a Universal Scheduling Pattern (SLOT)", "status": "slot"}
+{"id": "DISCOVERY-083", "type": "discovery", "label": "Cross-Domain Search Method: Session Meta-Analysis + Future Candidates", "status": "researched"}
+{"id": "DISCOVERY-087", "type": "discovery", "label": "Autonomous Session Summary (af81e953, 2026-04-13 → 2026-04-14) - was 085, rename", "status": "researched"}
+{"id": "DISCOVERY-088", "type": "discovery", "label": "L003 Resolution: Cross-Instance Knowledge Inheritance via Confidence-Discounted ", "status": "researched"}
+{"id": "DISCOVERY-091", "type": "discovery", "label": "Pattern A (Structural Hole Brokerage) Initial Prior-Art Probe - P105 candidate p", "status": "researched"}
+{"id": "DISCOVERY-092", "type": "discovery", "label": "Pattern B (Graceful Degradation) Initial Prior-Art Probe - weaker candidate, par", "status": "researched"}
+{"id": "DISCOVERY-093", "type": "discovery", "label": "Pattern C (Latency Hiding) Initial Prior-Art Probe - strong P107 candidate parke", "status": "researched"}
+{"id": "DISCOVERY-094", "type": "discovery", "label": "Pattern D (Idempotency) Initial Prior-Art Probe - weak, conflation risk with hom", "status": "researched"}
+{"id": "DISCOVERY-095", "type": "discovery", "label": "Pattern E (Renormalization) Initial Prior-Art Probe - DROPPED (heavily prior art", "status": "researched"}
+{"id": "DISCOVERY-096", "type": "discovery", "label": "Pattern J (Observability) Initial Prior-Art Probe - DROPPED (PNAS 2013 canonical", "status": "researched"}
+{"id": "DISCOVERY-097", "type": "discovery", "label": "Knowledge Units Index for Session af81e953 (32 KUs / 8 families)", "status": "researched"}
+{"id": "SPEC-016", "type": "spec", "label": "Conditions-Replication Quantum Biology Research Protocol (H3/H4)", "status": "draft"}
+{"id": "DISCOVERY-106", "type": "discovery", "label": "Direction Inversion: From Algorithm Extraction to Conditions Replication (H3)", "status": "researched"}
+{"id": "DISCOVERY-107", "type": "discovery", "label": "Density-Phase Transition as Control Variable for Biological Quantum Processes (H", "status": "researched"}
+{"id": "DISCOVERY-108", "type": "discovery", "label": "Context Pressure as Signal Density Proxy (P003)", "status": "registered"}
+{"id": "DISCOVERY-110", "type": "discovery", "label": "Capability-Required Field as Task-Level Operation Router (P005)", "status": "registered"}
+{"id": "DISCOVERY-112", "type": "discovery", "label": "Git Commit Discipline as Implicit Atomic Checkpoint Protocol (P006)", "status": "registered"}
+{"id": "DISCOVERY-114", "type": "discovery", "label": "MCL Levels as Coarse-Grain Operation Criticality Classifier (P008)", "status": "registered"}
+{"id": "DISCOVERY-116", "type": "discovery", "label": "Session Cost Accumulation as Retrospective Cost Signal (P010)", "status": "registered"}
+{"id": "DISCOVERY-098", "type": "discovery", "label": "C1-C8 Component Model as Implicit Hierarchical Cognitive Clustering (P022)", "status": "registered"}
+{"id": "DISCOVERY-099", "type": "discovery", "label": "Single-Component Spec Discipline as Cognitive Boundary Enforcement (P023)", "status": "registered"}
+{"id": "DISCOVERY-100", "type": "discovery", "label": "Read Deduplication Hook as Idempotent Enrichment Gate (P024)", "status": "registered"}
+{"id": "DISCOVERY-101", "type": "discovery", "label": "Research Validation Criteria as Implicit Sensitivity Analysis (P028)", "status": "registered"}
+{"id": "DISCOVERY-102", "type": "discovery", "label": "Phase Boundary Gate as Preventive Strategic Evaluation Protocol (P029)", "status": "registered"}
+{"id": "DISCOVERY-103", "type": "discovery", "label": "Per-Discovery SWOT Section as Implicit Autonomous SWOT Engine (P032)", "status": "registered"}
+{"id": "DISCOVERY-104", "type": "discovery", "label": "Session Token Floor as Implicit Session-Level MVO Policy (P043)", "status": "registered"}
+{"id": "DISCOVERY-105", "type": "discovery", "label": "Cross-Domain Analogy Search as Probe Principle Operationalization (P102)", "status": "registered"}
+{"id": "SPEC-017", "type": "spec", "label": "Heartbeat Mechanism", "status": "ready"}
+{"id": "SPEC-018", "type": "spec", "label": "Node Debate Protocol", "status": "ready"}
+{"id": "SPEC-019", "type": "spec", "label": "DVU Metric Standard", "status": "ready"}
+{"id": "SPEC-021", "type": "spec", "label": "Operator Daily View", "status": "ready"}
+{"id": "NODE-3", "type": "instance", "label": "Node 3 - Arthur Mapa (Venture Validation)", "status": "registered"}
+{"id": "PROP-001", "type": "proposal", "label": "Avian Genomics Decision Platform", "status": "open"}
+{"id": "PROP-002", "type": "proposal", "label": "DeepTech Literature Surveillance OS", "status": "open"}
+{"id": "PROP-003", "type": "proposal", "label": "Constraint-Relaxation Engineering Platform", "status": "open"}
+{"id": "PROP-004", "type": "proposal", "label": "Passive Cooling Materials Intelligence", "status": "open"}
+{"id": "PROP-006", "type": "proposal", "label": "Plataforma de Gestão para Clínicas Odontológicas", "status": "active"}
+{"id": "PROP-007", "type": "proposal", "label": "Plataforma de Gestão para Clínicas Veterinárias", "status": "hold"}
+{"id": "PROP-008", "type": "proposal", "label": "Automação para Clínicas de Estética e Beleza", "status": "hold"}
+{"id": "PROP-009", "type": "proposal", "label": "Relatório de Pesquisa Sob Demanda (CEI direto)", "status": "active"}
+{"id": "PROP-010", "type": "proposal", "label": "Follow-up Automático para Corretores de Imóveis", "status": "hold"}
+{"id": "DISCOVERY-137", "type": "discovery", "label": "Dental Clinic SaaS: Architecture Decisions", "status": "researched"}
+{"id": "SPEC-023", "type": "spec", "label": "Dental Clinic SaaS Platform", "status": "draft"}
+{"id": "DISCOVERY-121", "type": "discovery", "label": "RL-004 KU Operationalization: Classification Rule and Orphanage Protocol", "status": "researched"}
+{"id": "DISCOVERY-132", "type": "discovery", "label": "RL-004 Implementation Gaps: creation_type Field and Edge Durability", "status": "researched"}
+{"id": "DISCOVERY-133", "type": "discovery", "label": "Batch KU Follow-up: RL-006 Heartbeat Optimization + M2T Research Gap", "status": "researched"}
+{"id": "DISCOVERY-134", "type": "discovery", "label": "KU Batch: XDOM-002, RL004-006/007, RL006-007, R34-002", "status": "researched"}
+{"id": "DISCOVERY-135", "type": "discovery", "label": "BUG-D: Heartbeat Dedup Hash Type Mismatch", "status": "researched"}
+{"id": "DISCOVERY-136", "type": "discovery", "label": "Operator Translator - natural language as first-class CEI input", "status": "researched"}
+{"id": "SPEC-022", "type": "spec", "label": "Operator Translator", "status": "ready"}
+{"id": "ART-020", "type": "artifact", "label": "Operator Translator - CLAUDE.md protocol + /translate skill", "status": "registered"}
+{"id": "ART-021", "type": "artifact", "label": "DVU Metric Standard - build_dvu_dataset.py + tests", "status": "registered"}
+{"id": "DISCOVERY-138", "type": "discovery", "label": "H3/H4 Prior Art Verification - conditions-replication and density-phase transiti", "status": "researched"}
+{"id": "DISC-139", "type": "discovery", "label": "DISC-139", "status": "hypothesis"}
+{"id": "DISC-140", "type": "discovery", "label": "DISC-140", "status": "hypothesis"}
+{"id": "DISC-141", "type": "discovery", "label": "DISC-141", "status": "hypothesis"}
+{"id": "DISC-142", "type": "discovery", "label": "DISC-142", "status": "hypothesis"}
+{"id": "DISC-143", "type": "discovery", "label": "DISC-143", "status": "hypothesis"}
+{"id": "DISC-144", "type": "discovery", "label": "DISC-144", "status": "registered"}
+{"id": "DISC-145", "type": "discovery", "label": "DISC-145", "status": "hypothesis"}
+{"id": "DISC-146", "type": "discovery", "label": "DISC-146", "status": "hypothesis"}
+{"id": "DEB-001", "type": "debate", "label": "DEB-001", "status": "open"}
+{"id": "DISC-166", "type": "discovery", "label": "Anderson Localization Self-Reference: DISC-078 demonstrates the phenomenon it de", "status": "researched"}
+{"id": "DISC-155", "type": "discovery", "label": "k-Source Anonymity for Discovery Nodes - the mechanism the flywheel needs", "status": "hypothesis"}
+{"id": "SPEC-024", "type": "spec", "label": "k-Source Anonymity Algorithm", "status": "draft"}
+{"id": "DISC-161", "type": "discovery", "label": "Tiered Attribution Framework for Human-AI Collaborative Scientific Discovery", "status": "researched"}
+{"id": "P110", "type": "paper", "label": "P110 - Zenodo deposit pending", "status": "draft"}
+{"id": "P112", "type": "paper", "label": "Tiered Attribution in Human-AI Collaborative Scientific Discovery", "status": "draft"}
+{"id": "DISC-157", "type": "discovery", "label": "Paper organization at scale: flat numbering breaks thematic search, series, and ", "status": "researched"}
+{"id": "DISC-156", "type": "discovery", "label": "Validation Loop Problem: CEI cannot fully validate itself (Goedel applied to aut", "status": "hypothesis"}
+{"id": "DEB-002", "type": "debate", "label": "Goedel: can a self-referential discovery system validate itself?", "status": "open"}
+{"id": "DISC-168", "type": "discovery", "label": "Avian Pecking Order as Distributed Consensus Protocol - Byzantine Fault Toleranc", "status": "hypothesis"}
+{"id": "DISC-169", "type": "discovery", "label": "Collective Avian Thermoregulation as a Distributed Quantum Annealing Process", "status": "hypothesis"}
+{"id": "DISC-170", "type": "discovery", "label": "V-Formation Flight as Leaderless Distributed Continuous-State Consensus", "status": "hypothesis"}
+{"id": "DISC-171", "type": "discovery", "label": "DISC-171", "status": "hypothesis"}
+{"id": "DISC-172", "type": "discovery", "label": "DISC-172", "status": "hypothesis"}
+{"id": "DISC-173", "type": "discovery", "label": "DISC-173", "status": "hypothesis"}
+{"id": "DISC-174", "type": "discovery", "label": "DISC-174", "status": "hypothesis"}
+{"id": "DISC-175", "type": "discovery", "label": "DISC-175", "status": "hypothesis"}
+{"id": "DISC-176", "type": "discovery", "label": "DISC-176", "status": "hypothesis"}
+{"id": "DISC-177", "type": "discovery", "label": "DISC-177", "status": "hypothesis"}
+{"id": "DISC-178", "type": "discovery", "label": "DISC-178", "status": "hypothesis"}
+{"id": "DISC-179", "type": "discovery", "label": "DISC-179", "status": "researched"}
+{"id": "DISC-180", "type": "discovery", "label": "DISC-180", "status": "hypothesis"}
+{"id": "DISC-181", "type": "discovery", "label": "DISC-181", "status": "hypothesis"}
+{"id": "DISC-182", "type": "discovery", "label": "DISC-182", "status": "registered"}
+{"id": "DISC-183", "type": "discovery", "label": "DISC-183", "status": "hypothesis"}
+{"id": "DISC-184", "type": "discovery", "label": "DISC-184", "status": "hypothesis"}
+{"id": "DISC-185", "type": "discovery", "label": "DISC-185", "status": "hypothesis"}
+{"id": "DISC-186", "type": "discovery", "label": "DISC-186", "status": "hypothesis"}
+{"id": "DISC-187", "type": "discovery", "label": "DISC-187", "status": "registered"}
+{"id": "DISC-188", "type": "discovery", "label": "DISC-188", "status": "hypothesis"}
+{"id": "DISC-189", "type": "discovery", "label": "DISC-189", "status": "hypothesis"}
+{"id": "DISC-190", "type": "discovery", "label": "DISC-190", "status": "registered"}
+{"id": "DISC-191", "type": "discovery", "label": "DISC-191", "status": "hypothesis"}
+{"id": "DISC-192", "type": "discovery", "label": "DISC-192", "status": "hypothesis"}
+{"id": "DISC-193", "type": "discovery", "label": "DISC-193", "status": "hypothesis"}
+{"id": "DISC-194", "type": "discovery", "label": "DISC-194", "status": "hypothesis"}
+{"id": "DISC-195", "type": "discovery", "label": "DISC-195", "status": "hypothesis"}
+{"id": "DISC-196", "type": "discovery", "label": "DISC-196", "status": "hypothesis"}
+{"id": "DISC-197", "type": "discovery", "label": "DISC-197", "status": "hypothesis"}
+{"id": "DISC-198", "type": "discovery", "label": "DISC-198", "status": "hypothesis"}
+{"id": "DISC-199", "type": "discovery", "label": "DISC-199", "status": "active"}
+{"id": "DISC-200", "type": "discovery", "label": "DISC-200", "status": "registered"}
+{"id": "DISC-201", "type": "discovery", "label": "DISC-201", "status": "researched"}
+{"id": "DISC-202", "type": "discovery", "label": "DISC-202", "status": "researched"}
+{"id": "DISC-203", "type": "discovery", "label": "DISC-203", "status": "researched"}
+{"id": "DISC-204", "type": "discovery", "label": "DISC-204", "status": "researched"}
+{"id": "DISC-205", "type": "discovery", "label": "DISC-205", "status": "researched"}
+{"id": "DISC-207", "type": "discovery", "label": "DISC-207", "status": "researched"}
+{"id": "DISC-208", "type": "discovery", "label": "DISC-208", "status": "researched"}
+{"id": "DISC-211", "type": "discovery", "label": "DISC-211", "status": "researched"}
+{"id": "DISC-212", "type": "discovery", "label": "DISC-212", "status": "researched"}
+{"id": "DISC-218", "type": "discovery", "label": "Q1 Implicit Coverage Rationalization - Covered-By Line Required for Auditability", "status": "researched"}
+{"id": "DISC-213", "type": "discovery", "label": "CEI Self-Evolution Requires Explicit Operator Approval - Governance Gate", "status": "researched"}
+{"id": "DISC-215", "type": "discovery", "label": "Stage 7 MEASUREMENT covers operations but not KPI, SWOT, UX/CX from P036", "status": "researched"}
+{"id": "DISC-224", "type": "discovery", "label": "DISC-224", "status": "ready"}
+{"id": "DISC-222", "type": "discovery", "label": "DISC-222", "status": "researched"}
+{"id": "SPEC-222", "type": "spec", "label": "SPEC-222", "status": "ready"}
+{"id": "DISC-220", "type": "discovery", "label": "DISC-220", "status": "hypothesis"}
+{"id": "DISC-219", "type": "discovery", "label": "DISC-219", "status": "hypothesis"}
+{"id": "DISC-221", "type": "discovery", "label": "DISC-221", "status": "hypothesis"}
+{"id": "DISC-225", "type": "discovery", "label": "DISC-225", "status": "hypothesis"}
+{"id": "DISC-226", "type": "discovery", "label": "DISC-226", "status": "hypothesis"}
+{"id": "DISC-158", "type": "discovery", "label": "DISC-158", "status": "researched"}
+{"id": "SPEC-213", "type": "spec", "label": "SPEC-213", "status": "researched"}
+{"id": "SPEC-219", "type": "spec", "label": "SPEC-219", "status": "researched"}
+{"id": "SPEC-224", "type": "spec", "label": "SPEC-224", "status": "researched"}
+{"id": "DISC-277", "type": "discovery", "label": "Isolated Subgraph Audit", "status": "researched"}
+{"id": "DISC-278", "type": "discovery", "label": "Session Cost Hook", "status": "researched"}
+{"id": "DISC-279", "type": "discovery", "label": "Stage 5 Baseline Automation", "status": "researched"}
+{"id": "DISC-280", "type": "discovery", "label": "Missing Phantom Nodes", "status": "researched"}
+{"id": "DISC-281", "type": "discovery", "label": "Retroactive Cost Backfill", "status": "researched"}
+{"id": "DISC-282", "type": "discovery", "label": "Singleton Escalation Archive", "status": "researched"}
+{"id": "DISC-283", "type": "discovery", "label": "Graph Referential Integrity Gate", "status": "researched"}
+{"id": "DISC-284", "type": "discovery", "label": "Stage 6 TC Execution Automation", "status": "researched"}
+{"id": "DISC-273", "type": "discovery", "label": "Genesis Cost Tracking Gap: Missing cost_usd per Issue", "status": "researched"}
+{"id": "DISC-274", "type": "discovery", "label": "Graph Coherence Metrics Coarseness: Average Degree as a Weak Entropy Signal", "status": "researched"}
+{"id": "DISC-275", "type": "discovery", "label": "Stage Duration Distribution: Lifecycle Bottleneck Detection via Queueing Theory", "status": "researched"}
+{"id": "DISC-276", "type": "discovery", "label": "Stage 6 Test Spec Auto-Template: Reducing CV from 3.958 via AC-Driven Generation", "status": "researched"}
+{"id": "DISC-270", "type": "discovery", "label": "Measurement Causality Trap: Reification of Metrics as Ground Truth", "status": "researched"}
+{"id": "DISC-271", "type": "discovery", "label": "Graph Decay Rate vs. Human Refresh Cycle: Orphan Entropy", "status": "researched"}
+{"id": "DISC-272", "type": "discovery", "label": "Cost as Evolutionary Selection Pressure: Economic Fitness Landscape", "status": "researched"}
+{"id": "SPEC-285-A", "type": "spec", "label": "SPEC-285-A", "status": "researched"}
+{"id": "DISC-285", "type": "discovery", "label": "Graph Node Registration Gap", "status": "researched"}
+{"id": "TESTSPEC-285-A", "type": "testspec", "label": "TESTSPEC-285-A-node-registration", "status": "researched"}
+{"id": "TESTSPEC-286-A", "type": "testspec", "label": "TESTSPEC-286-A", "status": "researched"}
+{"id": "DISC-286", "type": "discovery", "label": "Stage 4 Red Team Template Automation", "status": "researched"}
+{"id": "SPEC-286-A", "type": "spec", "label": "SPEC-286-A-generate-redteam", "status": "researched"}
+{"id": "SPEC-287-A", "type": "spec", "label": "SPEC-287-A", "status": "researched"}
+{"id": "SPEC-288-A", "type": "spec", "label": "SPEC-288-A", "status": "researched"}
+{"id": "SPEC-289-A", "type": "spec", "label": "SPEC-289-A", "status": "researched"}
+{"id": "SPEC-290-A", "type": "spec", "label": "SPEC-290-A", "status": "researched"}
+{"id": "SPEC-291-A", "type": "spec", "label": "SPEC-291-A", "status": "researched"}
+{"id": "DISC-287", "type": "discovery", "label": "DISC-287", "status": "researched"}
+{"id": "DISC-288", "type": "discovery", "label": "DISC-288", "status": "researched"}
+{"id": "DISC-289", "type": "discovery", "label": "DISC-289", "status": "researched"}
+{"id": "DISC-290", "type": "discovery", "label": "DISC-290", "status": "researched"}
+{"id": "DISC-291", "type": "discovery", "label": "DISC-291", "status": "researched"}
+{"id": "DISC-292", "type": "discovery", "label": "DISC-292", "status": "researched"}
+{"id": "SPEC-292-A", "type": "spec", "label": "SPEC-292-A", "status": "researched"}
+{"id": "SPEC-293-A", "type": "spec", "label": "SPEC-293-A", "status": "researched"}
+{"id": "DISC-293", "type": "discovery", "label": "DISC-293", "status": "researched"}
+{"id": "SPEC-294-A", "type": "spec", "label": "SPEC-294-A", "status": "researched"}
+{"id": "DISC-294", "type": "discovery", "label": "DISC-294", "status": "researched"}
+{"id": "SPEC-295-A", "type": "spec", "label": "SPEC-295-A", "status": "researched"}
+{"id": "DISC-295", "type": "discovery", "label": "DISC-295", "status": "researched"}
+{"id": "SPEC-296-A", "type": "spec", "label": "SPEC-296-A", "status": "researched"}
+{"id": "DISC-296", "type": "discovery", "label": "DISC-296", "status": "researched"}
+{"id": "SPEC-297-A", "type": "spec", "label": "SPEC-297-A", "status": "researched"}
+{"id": "DISC-297", "type": "discovery", "label": "DISC-297", "status": "researched"}
+{"id": "DISC-299", "type": "discovery", "label": "DISC-299", "status": "hypothesis"}
+{"id": "DISC-300", "type": "discovery", "label": "DISC-300", "status": "hypothesis"}
+{"id": "DISC-301", "type": "discovery", "label": "DISC-301", "status": "hypothesis"}
+{"id": "DISC-302", "type": "discovery", "label": "DISC-302", "status": "hypothesis"}
+{"id": "DISC-303", "type": "discovery", "label": "DISC-303", "status": "hypothesis"}
+{"id": "DISC-304", "type": "discovery", "label": "DISC-304", "status": "hypothesis"}
+{"id": "DISC-305", "type": "discovery", "label": "DISC-305", "status": "researched"}
+{"id": "DISC-306", "type": "discovery", "label": "DISC-306", "status": "hypothesis"}
+{"id": "DISC-307", "type": "discovery", "label": "DISC-307", "status": "hypothesis"}
+{"id": "DISC-308", "type": "discovery", "label": "DISC-308", "status": "hypothesis"}
+{"id": "DISC-309", "type": "discovery", "label": "DISC-309", "status": "hypothesis"}
+{"id": "DISC-298", "type": "discovery", "label": "DISC-298", "status": "researched"}
+{"id": "DISC-239-compliance-gate-missing", "type": "discovery", "label": "DISC-239-compliance-gate-missing", "status": "hypothesis"}
+{"id": "DISC-241-autonomous-backlog-consumption", "type": "discovery", "label": "DISC-241-autonomous-backlog-consumption", "status": "hypothesis"}
+{"id": "DISC-247-shared-memory-system", "type": "discovery", "label": "DISC-247-shared-memory-system", "status": "hypothesis"}
+{"id": "DISC-249-fault-tolerance-audit", "type": "discovery", "label": "DISC-249-fault-tolerance-audit", "status": "hypothesis"}
+{"id": "DISC-250-session-metrics-visibility", "type": "discovery", "label": "DISC-250-session-metrics-visibility", "status": "hypothesis"}
+{"id": "DISC-253-genesis-issue-attribution-gap", "type": "discovery", "label": "DISC-253-genesis-issue-attribution-gap", "status": "hypothesis"}
+{"id": "DISC-254-methodology-triz-ooda-bayesian-synthesis", "type": "discovery", "label": "DISC-254-methodology-triz-ooda-bayesian-synthesis", "status": "hypothesis"}
+{"id": "DISC-255-5s-methodology-bisociation", "type": "discovery", "label": "DISC-255-5s-methodology-bisociation", "status": "hypothesis"}
+{"id": "DISC-257-asd-regulatory-bandwidth", "type": "discovery", "label": "DISC-257-asd-regulatory-bandwidth", "status": "hypothesis"}
+{"id": "DISC-258-legal-as-discovery-domain", "type": "discovery", "label": "DISC-258-legal-as-discovery-domain", "status": "hypothesis"}
+{"id": "DISC-259-cluster-security-audit-trail", "type": "discovery", "label": "DISC-259-cluster-security-audit-trail", "status": "hypothesis"}
+{"id": "DISC-260-process-as-memory-substitute", "type": "discovery", "label": "DISC-260-process-as-memory-substitute", "status": "hypothesis"}
+{"id": "DISC-261-risk-proportional-lifecycle", "type": "discovery", "label": "DISC-261-risk-proportional-lifecycle", "status": "hypothesis"}
+{"id": "DISC-270-measurement-causality-trap", "type": "discovery", "label": "DISC-270-measurement-causality-trap", "status": "hypothesis"}
+{"id": "DISC-271-graph-orphan-entropy", "type": "discovery", "label": "DISC-271-graph-orphan-entropy", "status": "hypothesis"}
+{"id": "DISC-272-cost-evolutionary-selection", "type": "discovery", "label": "DISC-272-cost-evolutionary-selection", "status": "hypothesis"}
+{"id": "DISC-273-genesis-cost-tracking-gap", "type": "discovery", "label": "DISC-273-genesis-cost-tracking-gap", "status": "hypothesis"}
+{"id": "DISC-274-graph-coherence-metrics-coarseness", "type": "discovery", "label": "DISC-274-graph-coherence-metrics-coarseness", "status": "hypothesis"}
+{"id": "DISC-275-stage-duration-distribution", "type": "discovery", "label": "DISC-275-stage-duration-distribution", "status": "hypothesis"}
+{"id": "DISC-276-stage6-testspec-autotemplate", "type": "discovery", "label": "DISC-276-stage6-testspec-autotemplate", "status": "hypothesis"}
+{"id": "DISC-277-isolated-subgraph-audit", "type": "discovery", "label": "DISC-277-isolated-subgraph-audit", "status": "hypothesis"}
+{"id": "DISC-278-genesis-session-cost-hook", "type": "discovery", "label": "DISC-278-genesis-session-cost-hook", "status": "hypothesis"}
+{"id": "DISC-279-stage5-baseline-automation", "type": "discovery", "label": "DISC-279-stage5-baseline-automation", "status": "hypothesis"}
+{"id": "DISC-280-missing-node-disc-158", "type": "discovery", "label": "DISC-280-missing-node-disc-158", "status": "hypothesis"}
+{"id": "DISC-281-retroactive-cost-backfill", "type": "discovery", "label": "DISC-281-retroactive-cost-backfill", "status": "hypothesis"}
+{"id": "DISC-282-singleton-escalation-archive", "type": "discovery", "label": "DISC-282-singleton-escalation-archive", "status": "hypothesis"}
+{"id": "DISC-283-graph-referential-integrity-gate", "type": "discovery", "label": "DISC-283-graph-referential-integrity-gate", "status": "hypothesis"}
+{"id": "DISC-284-stage6-tc-execution-automation", "type": "discovery", "label": "DISC-284-stage6-tc-execution-automation", "status": "hypothesis"}
+{"id": "DISC-285-graph-node-registration-gap", "type": "discovery", "label": "DISC-285-graph-node-registration-gap", "status": "hypothesis"}
+{"id": "DISC-286-stage4-redteam-automation", "type": "discovery", "label": "DISC-286-stage4-redteam-automation", "status": "hypothesis"}
+{"id": "DISC-287-stage3-validation-automation", "type": "discovery", "label": "DISC-287-stage3-validation-automation", "status": "hypothesis"}
+{"id": "DISC-288-stage2-spec-scaffolding", "type": "discovery", "label": "DISC-288-stage2-spec-scaffolding", "status": "hypothesis"}
+{"id": "DISC-289-complete-stage-auto-gates", "type": "discovery", "label": "DISC-289-complete-stage-auto-gates", "status": "hypothesis"}
+{"id": "DISC-290-stage-duration-session-files", "type": "discovery", "label": "DISC-290-stage-duration-session-files", "status": "hypothesis"}
+{"id": "DISC-292-graph-health-dashboard", "type": "discovery", "label": "DISC-292-graph-health-dashboard", "status": "hypothesis"}
+{"id": "DISC-293-generate-discovery-scaffolder", "type": "discovery", "label": "DISC-293-generate-discovery-scaffolder", "status": "hypothesis"}
+{"id": "DISC-294-stage1-spec227-auto-inject", "type": "discovery", "label": "DISC-294-stage1-spec227-auto-inject", "status": "hypothesis"}
+{"id": "DISC-295-graph-health-ci", "type": "discovery", "label": "DISC-295-graph-health-ci", "status": "hypothesis"}
+{"id": "DISC-296-auto-detect-project", "type": "discovery", "label": "DISC-296-auto-detect-project", "status": "hypothesis"}
+{"id": "DISC-297-heartbeat-script", "type": "discovery", "label": "DISC-297-heartbeat-script", "status": "hypothesis"}
+{"id": "DISC-298-validate-testspec", "type": "discovery", "label": "DISC-298-validate-testspec", "status": "hypothesis"}
+{"id": "DISC-299-spec-graph-sync", "type": "discovery", "label": "DISC-299-spec-graph-sync", "status": "hypothesis"}
+{"id": "DISC-perplexity-mcp-evaluation", "type": "discovery", "label": "DISC-perplexity-mcp-evaluation", "status": "hypothesis"}
+{"id": "DISC-310-distributed-quantum-computing", "type": "discovery", "label": "DISC-310-distributed-quantum-computing", "status": "hypothesis"}
+{"id": "DISC-300-principle-first-bisociation", "type": "discovery", "label": "DISC-300-principle-first-bisociation", "status": "hypothesis"}
+{"id": "DISC-310", "type": "discovery", "label": "DISC-310", "status": "hypothesis"}
+{"id": "DISC-311", "type": "discovery", "label": "DISC-311", "status": "hypothesis"}
+{"id": "DISC-312", "type": "discovery", "label": "DISC-312", "status": "hypothesis"}
+{"id": "DISC-313", "type": "discovery", "label": "DISC-313", "status": "hypothesis"}
+{"id": "DISC-314", "type": "discovery", "label": "DISC-314", "status": "hypothesis"}
+{"id": "DISC-315", "type": "discovery", "label": "DISC-315", "status": "hypothesis"}
+{"id": "DISC-316", "type": "discovery", "label": "DISC-316", "status": "hypothesis"}
+{"id": "DISC-317", "type": "discovery", "label": "DISC-317", "status": "hypothesis"}
+{"id": "DISC-318", "type": "discovery", "label": "DISC-318", "status": "hypothesis"}
+{"id": "DISC-319", "type": "discovery", "label": "DISC-319", "status": "hypothesis"}
+{"id": "DISC-301-domain-periodic-table", "type": "discovery", "label": "DISC-301-domain-periodic-table", "status": "hypothesis"}
+{"id": "DISC-302-operator-pattern-recognition", "type": "discovery", "label": "DISC-302-operator-pattern-recognition", "status": "hypothesis"}
+{"id": "DISC-303-programming-puzzle-assembly", "type": "discovery", "label": "DISC-303-programming-puzzle-assembly", "status": "hypothesis"}
+{"id": "DISC-304-circular-waste-chain", "type": "discovery", "label": "DISC-304-circular-waste-chain", "status": "hypothesis"}
+{"id": "DISC-305-bridge-over-rewrite", "type": "discovery", "label": "DISC-305-bridge-over-rewrite", "status": "hypothesis"}
+{"id": "DISC-306-expert-pattern-recognition", "type": "discovery", "label": "DISC-306-expert-pattern-recognition", "status": "hypothesis"}
+{"id": "DISC-307-araucana-linkage-hypothesis", "type": "discovery", "label": "DISC-307-araucana-linkage-hypothesis", "status": "hypothesis"}
+{"id": "DISC-308-maternal-attribution-egg-phenotype", "type": "discovery", "label": "DISC-308-maternal-attribution-egg-phenotype", "status": "hypothesis"}
+{"id": "DISC-309-distributed-cluster-two-nodes", "type": "discovery", "label": "DISC-309-distributed-cluster-two-nodes", "status": "hypothesis"}
+{"id": "DISC-310-metrics-as-mcl1", "type": "discovery", "label": "DISC-310-metrics-as-mcl1", "status": "hypothesis"}
+{"id": "DISC-311-never-lie-graceful-failure", "type": "discovery", "label": "DISC-311-never-lie-graceful-failure", "status": "hypothesis"}
+{"id": "DISC-312-canary-fault-injection", "type": "discovery", "label": "DISC-312-canary-fault-injection", "status": "hypothesis"}
+{"id": "DISC-313-quantum-biology-qec-extensions", "type": "discovery", "label": "DISC-313-quantum-biology-qec-extensions", "status": "hypothesis"}
+{"id": "DISC-314-change-conditions-not-problem", "type": "discovery", "label": "DISC-314-change-conditions-not-problem", "status": "hypothesis"}
+{"id": "DISC-315-cross-domain-source-expansion", "type": "discovery", "label": "DISC-315-cross-domain-source-expansion", "status": "hypothesis"}
+{"id": "DISC-316-thought-is-the-product", "type": "discovery", "label": "DISC-316-thought-is-the-product", "status": "hypothesis"}
+{"id": "DISC-317-combination-over-invention", "type": "discovery", "label": "DISC-317-combination-over-invention", "status": "hypothesis"}
+{"id": "DISC-318-typed-shared-backlog", "type": "discovery", "label": "DISC-318-typed-shared-backlog", "status": "hypothesis"}
+{"id": "DISC-319-git-event-bus", "type": "discovery", "label": "DISC-319-git-event-bus", "status": "hypothesis"}
+{"id": "DISC-333", "type": "discovery", "label": "DISC-333", "status": "registered"}
+{"id": "DISC-331-ip-protection", "type": "discovery", "label": "DISC-331-ip-protection", "status": "researched"}
+{"id": "DISC-247-R", "type": "discovery", "label": "DISC-247-R", "status": "registered"}
+{"id": "DISC-320", "type": "discovery", "label": "DISC-320", "status": "registered"}
+{"id": "DISC-321", "type": "discovery", "label": "DISC-321", "status": "registered"}
+{"id": "DISC-322", "type": "discovery", "label": "DISC-322", "status": "hypothesis"}
+{"id": "DISC-323", "type": "discovery", "label": "DISC-323", "status": "registered"}
+{"id": "DISC-324", "type": "discovery", "label": "DISC-324", "status": "registered"}
+{"id": "DISC-325", "type": "discovery", "label": "DISC-325", "status": "registered"}
+{"id": "DISC-326", "type": "discovery", "label": "DISC-326", "status": "registered"}
+{"id": "DISC-327", "type": "discovery", "label": "DISC-327", "status": "registered"}
+{"id": "DISC-328", "type": "discovery", "label": "DISC-328", "status": "registered"}
+{"id": "DISC-329", "type": "discovery", "label": "DISC-329", "status": "hypothesis"}
+{"id": "DISC-330", "type": "discovery", "label": "DISC-330", "status": "hypothesis"}
+{"id": "DISC-331", "type": "discovery", "label": "quantum biology energy computing", "status": "hypothesis", "cluster": "quantum_biology_H6"}
+{"id": "DISC-332", "type": "discovery", "label": "DISC-332", "status": "hypothesis"}
+{"id": "DISC-333-issue-driven-mago-instantiation", "type": "discovery", "label": "DISC-333-issue-driven-mago-instantiation", "status": "researched"}
+{"id": "DISC-334-synaptic-pruning-spec-lifecycle", "type": "discovery", "label": "DISC-334-synaptic-pruning-spec-lifecycle", "status": "researched"}
+{"id": "DISC-335-scientific-replication-dual-bisociation", "type": "discovery", "label": "DISC-335-scientific-replication-dual-bisociation", "status": "researched"}
+{"id": "DISC-336-protein-folding-graph-topology", "type": "discovery", "label": "DISC-336-protein-folding-graph-topology", "status": "researched"}
+{"id": "DISC-337-quorum-sensing-multi-node-consensus", "type": "discovery", "label": "DISC-337-quorum-sensing-multi-node-consensus", "status": "researched"}
+{"id": "DISC-322-hidden-state-variability", "type": "discovery", "label": "DISC-322-hidden-state-variability", "status": "hypothesis"}
+{"id": "DISC-323-capability-aware-routing", "type": "discovery", "label": "DISC-323-capability-aware-routing", "status": "hypothesis"}
+{"id": "DISC-324-node-liveness-protocol", "type": "discovery", "label": "DISC-324-node-liveness-protocol", "status": "hypothesis"}
+{"id": "DISC-325-node-reintegration-protocol", "type": "discovery", "label": "DISC-325-node-reintegration-protocol", "status": "hypothesis"}
+{"id": "DISC-326-node-knowledge-replication", "type": "discovery", "label": "DISC-326-node-knowledge-replication", "status": "hypothesis"}
+{"id": "DISC-327-contribution-gate", "type": "discovery", "label": "DISC-327-contribution-gate", "status": "hypothesis"}
+{"id": "DISC-328-memory-access-control", "type": "discovery", "label": "DISC-328-memory-access-control", "status": "hypothesis"}
+{"id": "DISC-329-immutable-origin-audit-pattern", "type": "discovery", "label": "DISC-329-immutable-origin-audit-pattern", "status": "hypothesis"}
+{"id": "DISC-331-thermal-substrate-computing", "type": "discovery", "label": "DISC-331-thermal-substrate-computing", "status": "hypothesis"}
+{"id": "SPEC-325-A", "type": "spec", "label": "SPEC-325-A", "status": "researched"}
+{"id": "DISC-338-node-occupancy-protocol", "type": "discovery", "label": "DISC-338-node-occupancy-protocol", "status": "hypothesis"}
+{"id": "DISC-332-k-source-anonymity-error-correction", "type": "discovery", "label": "DISC-332-k-source-anonymity-error-correction", "status": "hypothesis"}
+{"id": "DISC-339-adaptive-immunity-learned-rules", "type": "discovery", "label": "DISC-339-adaptive-immunity-learned-rules", "status": "hypothesis"}
+{"id": "DISC-340-mycelial-routing-session-budget", "type": "discovery", "label": "DISC-340-mycelial-routing-session-budget", "status": "hypothesis"}
+{"id": "DISC-341-nash-equilibrium-issue-claiming", "type": "discovery", "label": "DISC-341-nash-equilibrium-issue-claiming", "status": "hypothesis"}
+{"id": "DISC-342", "type": "discovery", "label": "DISC-342", "status": "hypothesis"}
+{"id": "DISC-342-immune-affinity-maturation-k-source-anonymity", "type": "discovery", "label": "DISC-342-immune-affinity-maturation-k-source-anonymity", "status": "researched"}
+{"id": "DISC-343-ant-colony-stigmergy-graph-edge-weighting", "type": "discovery", "label": "DISC-343-ant-colony-stigmergy-graph-edge-weighting", "status": "researched"}
+{"id": "DISC-344-shannon-entropy-spec-ambiguity-score", "type": "discovery", "label": "DISC-344-shannon-entropy-spec-ambiguity-score", "status": "researched"}
+{"id": "DISC-345-circadian-phase-locking-heartbeat-sync", "type": "discovery", "label": "DISC-345-circadian-phase-locking-heartbeat-sync", "status": "researched"}
+{"id": "DISC-346", "type": "discovery", "label": "DISC-346", "status": "hypothesis"}
+{"id": "DISC-346-crystallography-spec-maturation", "type": "discovery", "label": "DISC-346-crystallography-spec-maturation", "status": "researched"}
+{"id": "DISC-347-autophagy-graph-pruning", "type": "discovery", "label": "DISC-347-autophagy-graph-pruning", "status": "researched"}
+{"id": "DISC-348-dti-knowledge-pathway-analysis", "type": "discovery", "label": "DISC-348-dti-knowledge-pathway-analysis", "status": "researched"}
+{"id": "DISC-349-epigenetic-memory-session-context", "type": "discovery", "label": "DISC-349-epigenetic-memory-session-context", "status": "researched"}
+{"id": "DISC-350-mendeleev-gap-prediction-heartbeat", "type": "discovery", "label": "DISC-350-mendeleev-gap-prediction-heartbeat", "status": "researched"}
+{"id": "DISC-351-quorum-sensing-multi-node-coordination", "type": "discovery", "label": "DISC-351-quorum-sensing-multi-node-coordination", "status": "researched"}
+{"id": "DISC-352-crispr-targeted-graph-correction", "type": "discovery", "label": "DISC-352-crispr-targeted-graph-correction", "status": "researched"}
+{"id": "DISC-353-protein-folding-spec-structure-prediction", "type": "discovery", "label": "DISC-353-protein-folding-spec-structure-prediction", "status": "researched"}
+{"id": "DISC-354-turing-reaction-diffusion-discovery-clusters", "type": "discovery", "label": "DISC-354-turing-reaction-diffusion-discovery-clusters", "status": "researched"}
+{"id": "DISC-355-hebbian-synaptic-plasticity-spec-quality", "type": "discovery", "label": "DISC-355-hebbian-synaptic-plasticity-spec-quality", "status": "researched"}
+{"id": "DISC-356-phase-transition-knowledge-criticality", "type": "discovery", "label": "DISC-356-phase-transition-knowledge-criticality", "status": "researched"}
+{"id": "DISC-357-immune-tolerance-operator-preference-learning", "type": "discovery", "label": "DISC-357-immune-tolerance-operator-preference-learning", "status": "researched"}
+{"id": "DISC-358-trophic-cascade-knowledge-dependency", "type": "discovery", "label": "DISC-358-trophic-cascade-knowledge-dependency", "status": "researched"}
+{"id": "DISC-359-phyllotaxis-backlog-topic-diversity", "type": "discovery", "label": "DISC-359-phyllotaxis-backlog-topic-diversity", "status": "researched"}
+{"id": "DISC-360-red-queen-arms-race-red-team-evolution", "type": "discovery", "label": "DISC-360-red-queen-arms-race-red-team-evolution", "status": "researched"}
+{"id": "DISC-361-metamorphosis-lifecycle-stage-transformation", "type": "discovery", "label": "DISC-361-metamorphosis-lifecycle-stage-transformation", "status": "researched"}
+{"id": "DISC-362-coral-bleaching-quality-degradation", "type": "discovery", "label": "DISC-362-coral-bleaching-quality-degradation", "status": "researched"}
+{"id": "DISC-363-fibonacci-heap-priority-queue", "type": "discovery", "label": "DISC-363-fibonacci-heap-priority-queue", "status": "researched"}
+{"id": "DISC-364-mycelium-network-knowledge-graph", "type": "discovery", "label": "DISC-364-mycelium-network-knowledge-graph", "status": "researched"}
+{"id": "DISC-365-tidal-locking-spec-convergence", "type": "discovery", "label": "DISC-365-tidal-locking-spec-convergence", "status": "researched"}
+{"id": "DISC-347", "type": "discovery", "label": "DISC-347", "status": "hypothesis"}
+{"id": "SPEC-020", "type": "spec", "label": "SPEC-020", "status": "ready"}
+{"id": "DISC-366-quicklime-precondition-design", "type": "discovery", "label": "DISC-366-quicklime-precondition-design", "status": "hypothesis"}
+{"id": "DISC-367-go-workspace-monolith-domain-isolation", "type": "discovery", "label": "DISC-367-go-workspace-monolith-domain-isolation", "status": "researched"}
+{"id": "DISC-368-nats-deliverall-historical-replay", "type": "discovery", "label": "DISC-368-nats-deliverall-historical-replay", "status": "researched"}
+{"id": "DISC-369-poc-first-as-falsifiability-gate", "type": "discovery", "label": "DISC-369-poc-first-as-falsifiability-gate", "status": "researched"}
+{"id": "DISC-370-constitution-gap-pattern", "type": "discovery", "label": "DISC-370-constitution-gap-pattern", "status": "researched"}
+{"id": "DISC-371", "type": "discovery", "label": "DISC-371", "status": "hypothesis"}
+{"id": "DISC-372", "type": "discovery", "label": "DISC-372", "status": "hypothesis"}
+{"id": "DISC-374", "type": "discovery", "label": "DISC-374", "status": "researched"}
+{"id": "DISC-375", "type": "discovery", "label": "DISC-375", "status": "hypothesis"}

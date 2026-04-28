@@ -1,0 +1,11 @@
+# Topology-Aware SDM + Quantum Walk — Python dependencies
+# Paper DOI: 10.5281/zenodo.19645323
+
+# Core algorithm: Python standard library only (requires Python 3.10+)
+
+# Quantum walk refinement (for CTQW experiments):
+numpy>=2.0.0
+scipy>=1.11.0
+
+# Optional for hardware fingerprinting during benchmark reproduction:
+py-cpuinfo>=9.0.0

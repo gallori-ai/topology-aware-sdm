@@ -1,0 +1,48 @@
+component,value,notes
+os_name,Windows 11 Home Single Language,test machine
+os_build,10.0.26200 (SP0),current Windows 11
+os_architecture,64-bit,
+machine_manufacturer,Dell Inc.,
+machine_model,Vostro 5402,laptop (not desktop/server)
+machine_node,DELL-CLEBER,
+cpu_brand,11th Gen Intel Core i7-1165G7,Tiger Lake generation (2020)
+cpu_vendor,GenuineIntel,
+cpu_family,6,
+cpu_model,140,
+cpu_stepping,1,
+cpu_arch,X86_64,
+cpu_bits,64,
+cpu_clock_advertised_ghz,2.80,base frequency
+cpu_clock_actual_ghz,1.69,throttled (laptop power saving)
+cpu_max_clock_ghz,1.69,from wmic MaxClockSpeed
+cpu_cores_physical,4,
+cpu_cores_logical,8,hyper-threading
+cpu_l1_data_cache_kb,48,typical Tiger Lake (not reported by pycpuinfo)
+cpu_l1_instruction_cache_kb,32,typical Tiger Lake
+cpu_l2_cache_total_kb,5120,1.25 MB per core
+cpu_l3_cache_kb,12288,12 MB shared
+cpu_cache_line_bytes,64,standard x86-64 (pycpuinfo reported 256 for L2 — likely an error)
+cpu_flag_popcnt,yes,SSE4.2 hardware popcount
+cpu_flag_sse42,yes,
+cpu_flag_avx,yes,AVX 256-bit
+cpu_flag_avx2,yes,AVX2 256-bit
+cpu_flag_avx512f,yes,AVX-512 Foundation
+cpu_flag_avx512_vpopcntdq,NO,CRITICAL — this machine lacks vector POPCNT
+cpu_flag_bmi1,yes,bit manipulation
+cpu_flag_bmi2,yes,
+ram_total_gb,16,
+ram_module_size_gb,8,2 modules of 8 GB
+ram_module_count,2,
+ram_speed_mhz,3200,DDR4-3200
+disk_model,NVMe BC711 NVMe SK hynix 512GB,
+disk_size_gb,512,
+disk_type,NVMe SSD,fixed hard disk media (NVMe)
+python_implementation,CPython,
+python_version,3.13.5,
+numpy_version,2.4.4,
+scipy_version,1.17.1,
+compiler_gcc,not_available,E4 ctypes path blocked on this machine
+compiler_msvc,not_available,
+compiler_rustc,not_available,Rust port deferred
+measurement_date,2026-04-18,single autonomous session
+graph_commit,feat/442-sdm-manifold-battery,cei-core repository

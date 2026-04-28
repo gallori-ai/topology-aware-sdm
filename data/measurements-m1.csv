@@ -1,0 +1,29 @@
+experiment,method,bits,hop_depth,subgraph_size,mrr,recall_5,index_time_ms,query_time_us,storage_bytes_per_node,notes
+baseline,content-only SimHash,256,0,N/A,0.353,0.133,2687,57,32,baseline
+E1-2hop,content-only SimHash,1024,0,N/A,0.353,0.133,2687,74,128,k=0 baseline
+E1-2hop,1-hop topology-aware SDM,1024,1,N/A,0.919,0.652,6326,146,128,DISC-374 winner
+E1-2hop,2-hop topology-aware,1024,2,N/A,0.600,0.395,13456,110,128,saturation: 2-hop dilutes
+E1-2hop,3-hop topology-aware,1024,3,N/A,0.486,0.275,19255,110,128,further saturation
+E3-dim,topology-aware SDM,128,1,N/A,0.898,0.627,1415,152,16,stretches below optimal
+E3-dim,topology-aware SDM,256,1,N/A,0.919,0.652,2677,110,32,SWEET SPOT
+E3-dim,topology-aware SDM,512,1,N/A,0.919,0.652,3307,66,64,overkill memory
+E3-dim,topology-aware SDM,1024,1,N/A,0.919,0.652,6850,146,128,initial choice, overkill
+E3-dim,topology-aware SDM,2048,1,N/A,0.919,0.652,13802,110,256,severe overkill
+E2-numpy,Python int 256-bit,256,1,N/A,0.919,0.652,0,43,32,baseline comparison
+E2-numpy,numpy popcount table 256-bit,256,1,N/A,0.919,0.652,0,98,32,numpy slower than Python
+E2-numpy,numpy unpackbits 256-bit,256,1,N/A,0.919,0.652,0,87,32,numpy slower than Python
+E2-numpy,Python int 1024-bit,1024,1,N/A,0.919,0.652,0,103,128,baseline
+E2-numpy,numpy popcount 1024-bit,1024,1,N/A,0.919,0.652,0,342,128,numpy 3x slower
+E5-place,place cells only,256,N/A,N/A,0.133,0.068,243,N/A,32,place cell geometric encoding
+E5-place,place cells XOR content,256,N/A,N/A,0.352,0.133,697,N/A,32,recovers content baseline
+E7-reservoir,reservoir content only,256,N/A,N/A,0.249,0.092,79,N/A,32,ESN float->binary loss
+E7-reservoir,reservoir + 1-hop XOR,256,N/A,N/A,0.162,0.052,79,N/A,32,gets worse (noise amp)
+E8-cs,compressed sensing 64-bit,64,N/A,N/A,0.638,0.331,18,N/A,8,remarkable compactness
+E8-cs,compressed sensing 128-bit,128,N/A,N/A,0.682,0.423,36,N/A,16,
+E8-cs,compressed sensing 256-bit,256,N/A,N/A,0.743,0.461,72,N/A,32,below SDM at same size
+E8-cs,compressed sensing 512-bit,512,N/A,N/A,0.750,0.500,144,N/A,64,best CS result
+E8-cs,compressed sensing 1024-bit,1024,N/A,N/A,0.738,0.527,288,N/A,128,plateau
+E6-qw,quantum walk N=20,N/A,N/A,20,0.900,0.589,0,1000,N/A,CTQW at t=0.5
+E6-qw,quantum walk N=50,N/A,N/A,50,1.000,0.753,0,2000,N/A,PERFECT MRR
+E6-qw,quantum walk N=100,N/A,N/A,100,0.975,0.902,0,5000,N/A,best Recall@5
+E6-qw,quantum walk N=200,N/A,N/A,200,0.975,0.833,0,25000,N/A,at t=1.0

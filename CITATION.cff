@@ -1,0 +1,49 @@
+cff-version: 1.2.0
+message: "If you use this work, please cite it as below."
+type: software
+title: "Topology-Aware Binary SDM for Knowledge Graph Retrieval: A Multi-Architecture Empirical Study with Neural Baseline and Quantum Walk Analysis"
+version: "1.0.0"
+date-released: "2026-04-18"
+authors:
+  - family-names: "Barcelos Costa"
+    given-names: "Cleber"
+    affiliation: "Gallori AI"
+    orcid: "https://orcid.org/0009-0000-5172-9019"
+abstract: >-
+  A hybrid retrieval method combining SimHash content addressing with
+  weighted majority vote over 1-hop graph neighbor signatures (Topology-
+  Aware Sparse Distributed Memory, TA-SDM) and classical continuous-time
+  quantum walk refinement. Achieves MRR=0.919 with Recall@5=0.652 on a
+  392-node heterogeneous typed knowledge graph, and perfect MRR=1.000
+  on 50-node local subgraphs. Uses only 256-bit binary addresses, Python
+  standard library, and hardware POPCNT. Reproducibility validated on
+  two CPU generations separated by nine years.
+keywords:
+  - "knowledge graph retrieval"
+  - "sparse distributed memory"
+  - "hyperdimensional computing"
+  - "quantum walks"
+  - "SimHash"
+  - "binary embeddings"
+  - "POPCNT"
+  - "reproducibility"
+license: MIT
+identifiers:
+  - type: doi
+    value: "10.5281/zenodo.19645323"
+    description: "The concept DOI of the paper, resolving to all versions"
+preferred-citation:
+  type: article
+  title: "Topology-Aware Binary SDM for Knowledge Graph Retrieval: A Multi-Architecture Empirical Study with Neural Baseline and Quantum Walk Analysis"
+  authors:
+    - family-names: "Barcelos Costa"
+      given-names: "Cleber"
+      affiliation: "Gallori AI"
+      orcid: "https://orcid.org/0009-0000-5172-9019"
+  year: 2026
+  month: 4
+  doi: "10.5281/zenodo.19645323"
+  url: "https://doi.org/10.5281/zenodo.19645323"
+  publisher:
+    name: "Zenodo"
+repository-code: "https://github.com/gallori-ai/topology-aware-sdm"

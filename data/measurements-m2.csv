@@ -1,0 +1,29 @@
+experiment,method,bits,hop_depth,subgraph_size,mrr,recall_5,index_time_ms,query_time_us,storage_bytes_per_node,notes
+baseline,content-only SimHash,256,0,N/A,0.288,0.110,12080,260,32,machine2 baseline (graph=392 nodes)
+E1-2hop,content-only SimHash,1024,0,N/A,0.288,0.110,9315,N/A,128,k=0 baseline machine2
+E1-2hop,1-hop topology-aware SDM,1024,1,N/A,0.899,0.640,18087,N/A,128,DISC-374 winner machine2
+E1-2hop,2-hop topology-aware,1024,2,N/A,0.539,0.323,36496,N/A,128,saturation confirmed machine2
+E1-2hop,3-hop topology-aware,1024,3,N/A,0.378,0.206,54112,N/A,128,further saturation machine2
+E3-dim,topology-aware SDM,128,1,N/A,0.871,0.593,2362,189,16,stretches below optimal
+E3-dim,topology-aware SDM,256,1,N/A,0.899,0.640,4429,175,32,SWEET SPOT confirmed machine2
+E3-dim,topology-aware SDM,512,1,N/A,0.899,0.640,9102,239,64,overkill memory
+E3-dim,topology-aware SDM,1024,1,N/A,0.899,0.640,18249,255,128,overkill confirmed
+E3-dim,topology-aware SDM,2048,1,N/A,0.899,0.640,36383,319,256,severe overkill
+E2-numpy,Python int 256-bit,256,1,N/A,N/A,N/A,0,112,32,machine2 baseline comparison
+E2-numpy,numpy popcount table 256-bit,256,1,N/A,N/A,N/A,0,243,32,numpy 2.2x SLOWER (no AVX-512 VPOPCNTDQ)
+E2-numpy,numpy unpackbits 256-bit,256,1,N/A,N/A,N/A,0,188,32,numpy 1.7x slower
+E2-numpy,Python int 1024-bit,1024,1,N/A,N/A,N/A,0,181,128,baseline
+E2-numpy,numpy popcount 1024-bit,1024,1,N/A,N/A,N/A,0,443,128,numpy 2.4x slower (Sandy Bridge)
+E5-place,place cells only,256,N/A,N/A,0.108,0.055,602,N/A,32,place cell geometric encoding machine2
+E5-place,place cells XOR content,256,N/A,N/A,0.291,0.125,2217,N/A,32,recovers content baseline machine2
+E7-reservoir,reservoir content only,256,N/A,N/A,0.178,0.089,234,N/A,32,ESN float->binary loss machine2
+E7-reservoir,reservoir + 1-hop XOR,256,N/A,N/A,0.164,0.068,1,N/A,32,noise amplification confirmed
+E8-cs,compressed sensing 64-bit,64,N/A,N/A,0.658,0.387,16,N/A,8,remarkable compactness machine2
+E8-cs,compressed sensing 128-bit,128,N/A,N/A,0.729,0.482,28,N/A,16,
+E8-cs,compressed sensing 256-bit,256,N/A,N/A,0.799,0.493,56,N/A,32,below SDM at same size
+E8-cs,compressed sensing 512-bit,512,N/A,N/A,0.815,0.525,102,N/A,64,best CS result machine2
+E8-cs,compressed sensing 1024-bit,1024,N/A,N/A,0.807,0.526,196,N/A,128,plateau confirmed
+E6-qw,quantum walk N=20,N/A,N/A,20,0.900,0.578,5,N/A,N/A,CTQW at t=0.5 machine2
+E6-qw,quantum walk N=50,N/A,N/A,50,1.000,0.723,0,N/A,N/A,PERFECT MRR confirmed machine2
+E6-qw,quantum walk N=100,N/A,N/A,100,0.950,0.873,0,N/A,N/A,high Recall@5 machine2
+E6-qw,quantum walk N=200,N/A,N/A,200,1.000,0.893,1,N/A,N/A,PERFECT MRR at N=200 machine2

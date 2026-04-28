@@ -1,0 +1,49 @@
+{
+  "title": "Topology-Aware Binary SDM for Knowledge Graph Retrieval: A Multi-Architecture Empirical Study with Neural Baseline and Quantum Walk Analysis",
+  "description": "A training-free binary node-addressing method for knowledge graph retrieval that combines SimHash content hashing with a weighted majority vote over 1-hop graph neighbor signatures. On a 392-node heterogeneous typed knowledge graph (10-seed protocol): MRR 0.914 ± 0.038 with Recall@5 0.676 ± 0.037, a 3.45x improvement over content-only SimHash (paired t=41.78, p<0.001) and a 2.13x improvement over a trained 384-dimensional neural embedding baseline (all-MiniLM-L6-v2: MRR 0.429 ± 0.049; paired t=30.65, p<0.001), using 48x less storage per node (32 bytes vs 1,536 bytes). Multi-architecture reproducibility validated on Intel Sandy Bridge (2011) and Intel Tiger Lake (2020) with identical MRR. We also investigate classical continuous-time quantum walk ranking on 50-node subgraphs and report an honest ablation: BFS-distance ranking alone achieves MRR=1.000, statistically tied with CTQW (paired t=-1.00, p>0.05). Five negative-result experiments (multi-hop topology, hippocampal place cells, reservoir computing, compressed sensing, CTQW vs BFS) constrain the design space. Structured literature review of 47 prior works from five research traditions. Paper available in English and Portuguese.",
+  "upload_type": "publication",
+  "publication_type": "preprint",
+  "publication_date": "2026-04-18",
+  "language": "eng",
+  "keywords": [
+    "knowledge graph retrieval",
+    "sparse distributed memory",
+    "hyperdimensional computing",
+    "quantum walks",
+    "SimHash",
+    "binary embeddings",
+    "POPCNT",
+    "reproducibility",
+    "locality-sensitive hashing",
+    "graph neural networks"
+  ],
+  "access_right": "open",
+  "license": "CC-BY-4.0",
+  "creators": [
+    {
+      "name": "Barcelos Costa, Cleber",
+      "affiliation": "Gallori AI",
+      "orcid": "0009-0000-5172-9019"
+    }
+  ],
+  "related_identifiers": [
+    {
+      "relation": "isSupplementedBy",
+      "identifier": "https://github.com/gallori-ai/topology-aware-sdm",
+      "resource_type": "software"
+    }
+  ],
+  "communities": [
+    {
+      "identifier": "zenodo"
+    }
+  ],
+  "subjects": [
+    {
+      "term": "Information Retrieval",
+      "identifier": "http://id.loc.gov/authorities/subjects/sh85066169",
+      "scheme": "url"
+    }
+  ],
+  "notes": "Paper available in both English and Portuguese. Code released under MIT license at https://github.com/gallori-ai/topology-aware-sdm. All measurements reproducible on commodity hardware with Python 3.10+."
+}

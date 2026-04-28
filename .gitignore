@@ -1,0 +1,15 @@
+__pycache__/
+*.pyc
+*.pyo
+.ipynb_checkpoints/
+.DS_Store
+.vscode/
+.idea/
+*.log
+.venv/
+venv/
+env/
+
+# Private graph backups — contain full node content (IP) — never commit
+data/graph_private_backup.jsonl
+data/edges_private_backup.jsonl
