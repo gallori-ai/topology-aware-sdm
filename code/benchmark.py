@@ -1,14 +1,18 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Benchmark: reproduces the principal results of the paper.
+Benchmark: reproduces the principal results of the paper (single-run).
 
-Usage:  python code/benchmark.py
+Usage:
+    python code/benchmark.py                  # default seed=33 (paper v1)
+    python code/benchmark.py --seed 0         # any other seed
+    python code/experiment_multiseed.py       # 30-seed statistical analysis (v1.1)
 
 Paper DOI: 10.5281/zenodo.19645323
 License: MIT
 """
 
+import argparse
 import json
 import random
 import sys
@@ -50,11 +54,11 @@ def build_true_neighbors(edges: list[dict]) -> dict[str, set[str]]:
 
 
 def measure_mrr(
-    nodes: list[dict],
-    edges: list[dict],
-    addresses_fn,
-    n_queries: int = 50,
-    seed: int = 0,
+        nodes: list[dict],
+        edges: list[dict],
+        addresses_fn,
+        n_queries: int = 50,
+        seed: int = 0,
 ) -> tuple[float, float]:
     """
     Measure MRR and Recall@5 for graph neighbor retrieval.
@@ -103,10 +107,14 @@ def measure_mrr(
 
 # ─── Main benchmark ──────────────────────────────────────────────────────
 
-def run_benchmark():
+def run_benchmark(seed: int = 33):
     print("=" * 65)
     print("Topology-Aware SDM + Classical Quantum Walk — Benchmark")
     print("DOI: 10.5281/zenodo.19645323")
+    print("=" * 65)
+    print(f"Single-run benchmark (seed={seed}).")
+    print("For multi-seed statistical analysis (v1.1), run:")
+    print("    python code/experiment_multiseed.py")
     print("=" * 65)
 
     # Load graph
@@ -137,6 +145,7 @@ def run_benchmark():
 
     mrr_content, r5_content = measure_mrr(
         nodes, edges, lambda n: content_addrs[n['id']],
+        seed=seed,
     )
     print(f"    MRR = {mrr_content:.3f}   Recall@5 = {r5_content:.3f}")
 
@@ -149,6 +158,7 @@ def run_benchmark():
 
     mrr_ta, r5_ta = measure_mrr(
         nodes, edges, lambda n: ta_addrs[n['id']],
+        seed=seed,
     )
     print(f"    MRR = {mrr_ta:.3f}   Recall@5 = {r5_ta:.3f}")
 
@@ -161,12 +171,16 @@ def run_benchmark():
     print(f"    {'bits':>6}  {'MRR':>8}  {'Recall@5':>8}")
     for bits in [128, 256, 512, 1024]:
         addrs = build_addresses(nodes, edges, bits=bits)
-        mrr, r5 = measure_mrr(nodes, edges, lambda n, a=addrs: a[n['id']])
+        mrr, r5 = measure_mrr(
+            nodes, edges, lambda n, a=addrs: a[n['id']],
+            seed=seed,
+        )
         marker = " ←" if bits == 256 else ""
         print(f"    {bits:>6}  {mrr:>8.3f}  {r5:>8.3f}{marker}")
 
     # ── Experiment 4: Classical quantum walk refinement ──────────────
     print("\n[4] Classical quantum walk refinement (N=50 subgraph)")
+    mrr_qw = None
     try:
         from quantum_walk import quantum_walk_top_k
         import numpy as np
@@ -174,7 +188,7 @@ def run_benchmark():
         print(f"    SKIPPED (scipy/numpy required: {e})")
     else:
         true_neighbors = build_true_neighbors(edges)
-        random.seed(0)
+        random.seed(seed)
         query_candidates = [n for n in nodes if len(true_neighbors[n['id']]) >= 2]
         random.shuffle(query_candidates)
         query_nodes = query_candidates[:20]
@@ -234,22 +248,34 @@ def run_benchmark():
 
     # ── Summary ──────────────────────────────────────────────────────
     print("\n" + "=" * 65)
-    print("SUMMARY — Reproduced results from paper")
+    print(f"SUMMARY — Single-run results (seed={seed})")
     print("=" * 65)
-    print(f"  TA-SDM MRR (target: 0.919): {mrr_ta:.3f}  "
+    print(f"  TA-SDM MRR (paper v1: 0.919): {mrr_ta:.3f}  "
           f"{'✓' if 0.85 < mrr_ta < 0.95 else '≠'}")
-    print(f"  TA-SDM Recall@5 (target: 0.652): {r5_ta:.3f}  "
+    print(f"  TA-SDM Recall@5 (paper v1: 0.652): {r5_ta:.3f}  "
           f"{'✓' if 0.55 < r5_ta < 0.75 else '≠'}")
-    print(f"  Content-only MRR (target: 0.35): {mrr_content:.3f}  "
-          f"{'✓' if 0.25 < mrr_content < 0.45 else '≠'}")
-    if 'mrr_qw' in dir():
-        print(f"  Quantum walk MRR @ N=50 (target: 1.000): {mrr_qw:.3f}  "
+    print(f"  Content-only MRR (paper v1: 0.353): {mrr_content:.3f}  "
+          f"{'✓' if 0.15 < mrr_content < 0.40 else '≠'}")
+    if mrr_qw is not None:
+        print(f"  Quantum walk MRR @ N=50 (paper v1: 1.000): {mrr_qw:.3f}  "
               f"{'✓' if mrr_qw > 0.95 else '≠'}")
     print(f"  XOR binding errors (target: 0): {errors}  "
           f"{'✓' if errors == 0 else '≠'}")
     print()
+    print("  v1.1 multi-seed analysis: see data/multiseed-public.csv")
     print("  Paper: https://doi.org/10.5281/zenodo.19645323")
 
 
 if __name__ == '__main__':
-    run_benchmark()
+    parser = argparse.ArgumentParser(
+        description=(
+            "TA-SDM single-run benchmark. Reproduces paper v1 numbers (seed=33). "
+            "For multi-seed statistical analysis (v1.1), run experiment_multiseed.py."
+        )
+    )
+    parser.add_argument(
+        '--seed', type=int, default=33,
+        help='Random seed for query selection (default: 33, reproduces paper v1).'
+    )
+    args = parser.parse_args()
+    run_benchmark(seed=args.seed)
