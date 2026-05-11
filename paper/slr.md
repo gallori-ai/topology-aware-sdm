@@ -4,7 +4,7 @@
 A Multi-Architecture Empirical Study with Neural Baseline and Quantum Walk Analysis
 **Paper DOI:** [10.5281/zenodo.19645323](https://doi.org/10.5281/zenodo.19645323)
 **Author:** Cleber Barcelos Costa (Gallori AI)
-**Date:** 2026-04-18
+**Date:** 2026-05-11 (originally 2026-04-18)
 
 ---
 

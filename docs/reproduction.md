@@ -1,8 +1,9 @@
 # Reproduction Guide
 
 This document provides step-by-step instructions to reproduce the results in
-the paper "Perfect Knowledge Graph Retrieval via Hybrid Binary SDM and
-Classical Quantum Walk" (DOI: 10.5281/zenodo.19645323).
+the paper "Topology-Aware Binary SDM for Knowledge Graph Retrieval:
+A Multi-Architecture Empirical Study with Neural Baseline and Quantum Walk
+Analysis" (DOI: 10.5281/zenodo.19645323).
 
 ## Prerequisites
 
@@ -25,19 +26,33 @@ pip install -r requirements.txt
 python code/benchmark.py
 ```
 
-Expected output (final summary):
+Expected output (final summary, seed=33 on the public sanitized graph):
 
 ```
-SUMMARY — Reproduced results from paper
-=====================================================================
-  TA-SDM MRR (target: 0.919): 0.919  ✓
-  TA-SDM Recall@5 (target: 0.652): 0.652  ✓
-  Content-only MRR (target: 0.35): 0.353  ✓
-  Quantum walk MRR @ N=50 (target: 1.000): 1.000  ✓
+SUMMARY — Single-run results (seed=33)
+  TA-SDM MRR (paper v1: 0.919): 0.919  ✓
+  TA-SDM Recall@5 (paper v1: 0.652): 0.687  ✓
+  Content-only MRR (paper v1: 0.353): 0.174  ✓
+  Quantum walk MRR @ N=50 (paper v1: 1.000): 1.000  ✓
   XOR binding errors (target: 0): 0  ✓
 ```
 
-MRR values within ±0.01 of these targets are considered reproduced.
+**Note on content-only baseline:** The public graph has sanitized labels
+(generic topic codes instead of full hypothesis text). This preserves graph
+topology but reduces content similarity, so the content-only SimHash baseline
+is lower on the public graph (≈0.17) than in the paper's private graph (0.353).
+TA-SDM is minimally affected (0.919 on both) because it relies primarily on
+topology, not content. The ✓ markers use tolerance ranges that account for this.
+
+### Multi-seed statistical analysis (v1.1)
+
+```bash
+python code/experiment_multiseed.py
+```
+
+Runs 30 seeds and reports mean ± std with 95% CI and paired t-test.
+Output: `data/multiseed-public.csv`. This is the statistical foundation
+for the v1.1 Protocol B results reported in the paper abstract.
 
 ## Individual experiments
 
@@ -119,14 +134,15 @@ print(f'Python: {platform.python_version()}')
 
 ## Expected variance across hardware
 
-The paper validates reproducibility on two specific machines:
+The paper validates reproducibility on three specific machines:
 - Dell Vostro 5402 (Intel Core i7-1165G7, Tiger Lake, 2020)
 - LG Z430 (Intel Core i7-2637M, Sandy Bridge, 2011)
+- Dell Pro Micro Plus QBM1250 (Intel Core Ultra 7 265T, Arrow Lake, 2024)
 
-On both machines:
-- **MRR** values are identical to 3 decimal places (algorithm property)
+On all three machines:
+- **Output is bit-exact identical** — same binary addresses and rankings
 - **Throughput** varies with CPU generation: expect ~4-5x difference between
-  consumer laptops of different generations
+  consumer machines of different generations
 - **Latency** scales with throughput inversely
 
 If you see MRR values outside the range 0.85–0.95 for TA-SDM, please:
@@ -159,8 +175,9 @@ lack POPCNT and fall back to software.
 ```bibtex
 @misc{barceloscosta2026tasdm,
   author = {Barcelos Costa, Cleber},
-  title  = {Perfect Knowledge Graph Retrieval via Hybrid Binary SDM
-            and Classical Quantum Walk: A Multi-Architecture Empirical Study},
+  title  = {Topology-Aware Binary SDM for Knowledge Graph Retrieval:
+            A Multi-Architecture Empirical Study with Neural Baseline
+            and Quantum Walk Analysis},
   year   = {2026},
   doi    = {10.5281/zenodo.19645323},
   url    = {https://doi.org/10.5281/zenodo.19645323}

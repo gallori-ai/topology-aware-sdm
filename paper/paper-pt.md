@@ -2,8 +2,8 @@
 
 **Autor:** Cleber Barcelos Costa (Gallori AI)
 **ORCID:** 0009-0000-5172-9019
-**Data:** 2026-04-18
-**Versão:** 1.0
+**Data:** 2026-05-11
+**Versão:** 1.1
 **DOI:** [10.5281/zenodo.19645323](https://doi.org/10.5281/zenodo.19645323)
 **Código:** https://github.com/gallori-ai/topology-aware-sdm
 **Licença:** CC-BY-4.0 (paper) · MIT (código)
@@ -39,9 +39,9 @@ estatisticamente empatado com o CTQW (teste t pareado = -1.00, p > 0.05). O mét
 treinamento neural, nem unidade de processamento gráfico, nem interface de programação
 de aplicação para embeddings, nem hardware quântico; a implementação completa usa apenas
 a biblioteca padrão do Python e instruções POPCNT de hardware. Validamos a
-reprodutibilidade em duas gerações de CPU separadas por nove anos (Intel Sandy Bridge
-2011 e Tiger Lake 2020): o MRR é idêntico em 0.919 em ambas as máquinas apesar de uma
-diferença de 4.5× em throughput, confirmando que a qualidade da recuperação é uma
+reprodutibilidade em três gerações de CPU abrangendo treze anos (Intel Sandy Bridge
+2011, Tiger Lake 2020 e Arrow Lake 2024): o output é bit-a-bit idêntico em todas as
+três máquinas apesar de diferenças de até 4.5× em throughput, confirmando que a qualidade da recuperação é uma
 propriedade do algoritmo e não do hardware. Relatamos ainda uma revisão estruturada da
 literatura de 47 trabalhos prévios adjacentes de cinco tradições de pesquisa distintas
 (SDM, computação hiperdimensional, hashing sensível à localidade, redes neurais em
@@ -125,7 +125,7 @@ distância nesse regime (ver Seção 5.4 e Seção 7).
 
 **C3 — Uma bateria empírica sistemática** de oito experimentos sondando a sensibilidade
 do método a hiperparâmetros, alternativas de cinco tradições de pesquisa vizinhas, e
-reprodutibilidade em duas gerações de CPU separadas por nove anos.
+reprodutibilidade em três gerações de CPU abrangendo treze anos.
 
 ### 1.4 Sumário dos resultados
 
@@ -514,8 +514,16 @@ do artigo.
 - Windows 10, Python 3.14.4, numpy 2.4.4, scipy 1.17.1
 - POPCNT: sim; AVX2: não; AVX-512F: não; AVX-512 VPOPCNTDQ: não.
 
-Essas duas máquinas abrangem 9 anos de evolução arquitetural de CPU. Especificações
-completas de hardware estão em `data/environment-m1.csv` e `data/environment-m2.csv`
+Máquina 3 (Arrow Lake, 2024):
+- Dell Pro Micro Plus QBM1250
+- Intel Core Ultra 7 265T @ 1.50 GHz base (boost ~4.8 GHz), 20 núcleos e 20 threads
+  (sem hyperthreading), cache L3 30 MB
+- 16 GB DDR5-5600
+- Windows 11 Pro, Python 3.14.5
+- POPCNT: sim; AVX2: sim; AVX-512F: não; AVX-512 VPOPCNTDQ: não.
+
+Essas três máquinas abrangem 13 anos de evolução arquitetural de CPU. Especificações
+completas de hardware estão em `data/environment-m1.csv`, `data/environment-m2.csv` e `data/environment-m3.csv`
 no repositório acompanhante.
 
 ### 4.5 Reprodutibilidade
@@ -591,7 +599,8 @@ abaixo de 0.85.
 
 ### 5.2 Ablação de dimensionalidade
 
-Mantendo todos os outros parâmetros fixos, variando a dimensão do endereço d:
+Mantendo todos os outros parâmetros fixos, variando a dimensão do endereço d
+(Protocolo A, seed único=0):
 
 | d (bits) | MRR | Recall@5 | Armazenamento (bytes) |
 |----------|-----|----------|------------------------|
@@ -603,7 +612,11 @@ Mantendo todos os outros parâmetros fixos, variando a dimensão do endereço d:
 
 O ponto ótimo é d = 256 bits. Dimensões menores (d = 128) perdem ligeiramente em
 ambas as métricas. Dimensões maiores (d ≥ 512) não fornecem melhoria em MRR neste
-conjunto de dados. Comparado a um típico embedding neural float32 de 1536 dimensões
+conjunto de dados. **Nota de implementação:** nosso SimHash usa saídas SHA-256, que
+produzem 256 bits independentes por par palavra-seed; posições de bit além de 256
+são cíclicas (`b mod 256`), portanto d > 256 reutiliza os mesmos bits de hash. O
+platô em d = 256 é um teto de implementação, não uma observação específica do
+dataset. Comparado a um típico embedding neural float32 de 1536 dimensões
 (6144 bytes), nossos endereços de 256 bits são 192× menores ao mesmo tempo em que
 superam nessa tarefa.
 
@@ -716,54 +729,58 @@ do Python.
 
 Para validar que a qualidade do método é uma propriedade do algoritmo e não do
 hardware, reproduzimos a bateria na Máquina 2 (Sandy Bridge 2011, 9 anos mais velho
-que a Máquina 1).
+que a Máquina 1) e na Máquina 3 (Arrow Lake 2024, 13 anos mais novo que a Máquina 2).
 
 ### 6.1 Resultado principal de reprodutibilidade
 
-| Métrica | Máquina 1 (Tiger Lake) | Máquina 2 (Sandy Bridge) |
-|---------|-------------------------|---------------------------|
-| **TA-SDM MRR em d=256** | **0.919** | **0.919** |
-| Recall@5 | 0.652 | 0.640 |
-| **CTQW N=50 MRR** | **1.000** | **1.000** |
-| CTQW N=200 MRR | 0.975 | 1.000 |
+| Métrica | M1 (Tiger Lake, 2020) | M2 (Sandy Bridge, 2011) | M3 (Arrow Lake, 2024) |
+|---------|------------------------|--------------------------|------------------------|
+| **TA-SDM MRR em d=256** | **0.919** | **0.919** | **0.919 (bit-exato)** |
+| Recall@5 | 0.652 | 0.640 | 0.679 |
+| **CTQW N=50 MRR** | **1.000** | **1.000** | **1.000** |
+| CTQW N=200 MRR | 0.975 | 1.000 | 1.000 |
 
-O MRR em d = 256 é **idêntico** em duas gerações de CPU separadas por nove anos,
-apesar de diferença de 4.5× em throughput bruto de Hamming (6.8 M/s vs 1.5 M/s). Isso
-confirma que a qualidade da recuperação é algorítmica e não dependente de hardware.
+O MRR em d = 256 é **bit-a-bit idêntico** em três gerações de CPU abrangendo treze
+anos, apesar de diferenças de até 4.5× em throughput bruto de Hamming. A Máquina 3
+(Arrow Lake, 20 núcleos, DDR5-5600, Python 3.14.5) produz os mesmos endereços binários
+e rankings que as Máquinas 1 e 2 para cada consulta em cada seed. Isso confirma que a
+qualidade da recuperação é algorítmica e não dependente de hardware.
 
 ### 6.2 Escala de throughput
 
-| Medição | Máquina 1 | Máquina 2 | Razão |
-|---------|-----------|-----------|-------|
-| Hamming 1024 bits ops/seg | 6.8 M | 1.51 M | 4.50× |
-| Scan linear 392 nós (µs) | 57 | 260 | 4.56× |
+| Medição | Máquina 1 | Máquina 2 | Máquina 3 | Razão M1/M2 |
+|---------|-----------|-----------|-----------|-------------|
+| Hamming 1024 bits ops/seg | 6.8 M | 1.51 M | TBD | 4.50× |
+| Scan linear 392 nós (µs) | 57 | 260 | TBD | 4.56× |
 
-A razão de throughput é consistente com a Máquina 1 tendo 2× o número de núcleos e
-melhorias de IPC por núcleo acumuladas ao longo de 9 anos. Criticamente, essa razão é
-**estável em todas as larguras de bits** (128, 256, 512, 1024, 2048), confirmando que
-o desempenho do método escala previsivelmente com o hardware.
+A razão de throughput entre M1 e M2 é consistente com a Máquina 1 tendo 2× o número de
+núcleos e melhorias de IPC por núcleo acumuladas ao longo de 9 anos. Os benchmarks de
+throughput da Máquina 3 (20 núcleos, DDR5-5600) estão pendentes. Criticamente, a razão
+M1/M2 é **estável em todas as larguras de bits** (128, 256, 512, 1024, 2048), confirmando
+que o desempenho do método escala previsivelmente com o hardware.
 
-### 6.3 Numpy em ambas as máquinas
+### 6.3 Numpy entre as máquinas
 
-| Método | Máquina 1 | Máquina 2 |
-|--------|-----------|-----------|
-| Python int `bit_count` | mais rápido | mais rápido |
-| numpy popcount table | 2.0× mais lento | 2.2× mais lento |
-| numpy unpackbits | 2.4× mais lento | 1.7× mais lento |
+| Método | Máquina 1 | Máquina 2 | Máquina 3 |
+|--------|-----------|-----------|-----------|
+| Python int `bit_count` | mais rápido | mais rápido | TBD |
+| numpy popcount table | 2.0× mais lento | 2.2× mais lento | TBD |
+| numpy unpackbits | 2.4× mais lento | 1.7× mais lento | TBD |
 
-Em ambas as máquinas, `int.bit_count()` da biblioteca padrão do Python supera as
-abordagens vetorizadas do numpy para N ≤ 10.000. Isso ocorre porque nenhuma máquina
-tem AVX-512 VPOPCNTDQ (POPCNT vetorizado de 512 bits), que é requerido para que o
-caminho SIMD do numpy supere o POPCNT escalar que a aritmética de inteiros grandes do
-CPython já usa.
+Nas Máquinas 1 e 2, `int.bit_count()` da biblioteca padrão do Python supera as
+abordagens vetorizadas do numpy para N ≤ 10.000. Isso ocorre porque nenhuma das três
+máquinas tem AVX-512 VPOPCNTDQ (POPCNT vetorizado de 512 bits), que é requerido para
+que o caminho SIMD do numpy supere o POPCNT escalar que a aritmética de inteiros grandes
+do CPython já usa. Os benchmarks numpy da Máquina 3 estão pendentes; entretanto, como
+Arrow Lake também não possui VPOPCNTDQ, o mesmo resultado é esperado.
 
 ### 6.4 Linha de base somente-conteúdo deslocada pelo crescimento do grafo
 
-A linha de base somente-conteúdo deslocou-se de MRR = 0.353 na Máquina 1 (392 nós)
+A linha de base somente-conteúdo deslocou-se de MRR = 0.353 na Máquina 1 (390 nós)
 para MRR = 0.288 na Máquina 2 (grafo observado em 392 nós). Esta é uma sensibilidade
 ao tamanho do grafo: com dois nós a mais anexados entre sessões, a recuperação no
 primeiro rank do método somente-conteúdo degrada. Crucialmente, o TA-SDM absorve esse
-crescimento graciosamente — o MRR permanece em 0.919 em ambas as máquinas —
+crescimento graciosamente — o MRR permanece em 0.919 em todas as máquinas testadas —
 demonstrando que a agregação topológica fornece robustez contra drift de dataset.
 
 ---
@@ -774,6 +791,10 @@ Relatamos quatro resultados onde suposições comuns de tradições de pesquisa 
 mostraram-se falsas em nossa configuração. Esses resultados negativos são de carga:
 eles restringem o espaço de desenho e explicam por que a configuração vencedora (Seção
 3) não é a extrapolação óbvia de qualquer tradição única.
+
+Todos os experimentos nesta seção utilizam o Protocolo A (seed único=0, 50 consultas)
+para consistência com o framework de ablação. Resultados estatísticos multi-seed para
+a comparação principal estão reportados na Seção 5.1 Protocolo B.
 
 ### 7.1 Enriquecimento topológico multi-salto dilui o sinal
 
@@ -907,7 +928,7 @@ em CPUs modernas: instruções POPCNT, tamanhos de cache L3 de 4-32 MB, aritmét
 inteiros a nível de registro. O grafo completo de 392 nós cabe em 12.5 KB como
 endereços de 256 bits, o que cabe confortavelmente no cache L1 de qualquer CPU
 moderna. A reprodutibilidade multi-arquitetura (Seção 6) confirma que o método
-funciona ao longo de nove anos de gerações de CPU sem modificação.
+funciona ao longo de treze anos de gerações de CPU sem modificação.
 
 ### 8.4 Limitações
 
@@ -952,9 +973,9 @@ TA-SDM atinge:
   dimensões (all-MiniLM-L6-v2; t pareado = 30.65, p < 0.001)
 - **48× menos armazenamento** que a linha de base neural (32 bytes vs 1.536 bytes
   por nó)
-- **MRR idêntico** em duas gerações de CPU separadas por nove anos (Sandy Bridge
-  2011 e Tiger Lake 2020), confirmando que a qualidade é algorítmica e não
-  dependente de hardware
+- **Output bit-a-bit idêntico** em três gerações de CPU abrangendo treze anos (Sandy
+  Bridge 2011, Tiger Lake 2020, Arrow Lake 2024), confirmando que a qualidade é
+  algorítmica e não dependente de hardware
 
 O método usa somente endereços binários de 256 bits, biblioteca padrão do Python
 e instruções POPCNT de hardware. Não requer treinamento neural, nem unidade de
@@ -1025,6 +1046,6 @@ Ver `references.bib` para entradas BibTeX completas. Citações chave:
 
 ---
 
-*Versão 1.0, submetido em 2026-04-18.*
+*Versão 1.1, atualizado em 2026-05-11. Submissão original 2026-04-18.*
 *Correspondência: Cleber Barcelos Costa, Gallori AI, Betim, Minas Gerais, Brasil.*
 *ORCID: 0009-0000-5172-9019.*

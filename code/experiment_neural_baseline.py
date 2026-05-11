@@ -22,8 +22,7 @@ from collections import defaultdict
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
-from sdm_benchmark import load_graph, node_to_text, simhash
-from experiment_2hop import compute_all_addresses
+from topology_aware_sdm import load_graph, node_to_text, simhash, build_addresses
 
 try:
     sys.stdout.reconfigure(encoding='utf-8')
@@ -142,7 +141,11 @@ def main():
     print("Head-to-head: all-MiniLM-L6-v2 (384d float32) vs TA-SDM (256-bit binary)")
     print("=" * 65)
 
-    nodes, edges = load_graph()
+    repo_root = Path(__file__).parent.parent
+    nodes, edges = load_graph(
+        str(repo_root / 'data' / 'graph.jsonl'),
+        str(repo_root / 'data' / 'edges.jsonl'),
+    )
     print(f"\nGraph: {len(nodes)} nodes, {len(edges)} edges")
 
     # ── Compute embeddings and addresses ────────────────────────
@@ -151,7 +154,7 @@ def main():
 
     print("\n[2/3] Computing TA-SDM addresses (256-bit, 1-hop)...")
     t0 = time.perf_counter()
-    ta_addrs = compute_all_addresses(nodes, edges, k=1, bits=256)
+    ta_addrs = build_addresses(nodes, edges, bits=256)
     print(f"  {(time.perf_counter()-t0)*1000:.0f}ms")
 
     print("\n[3/3] Computing content-only SimHash (256-bit)...")
@@ -250,7 +253,7 @@ def main():
         print("Paper claim: 'TA-SDM matches neural embeddings at 48x less storage, no API, no GPU'")
 
     # Write CSV
-    out_csv = Path(__file__).parent.parent.parent / 'knowledge/papers/series-DISC-374/public-release/data/neural-baseline-m1.csv'
+    out_csv = repo_root / 'data' / 'neural-baseline-m1.csv'
     out_csv.parent.mkdir(parents=True, exist_ok=True)
     with open(out_csv, 'w', encoding='utf-8') as f:
         f.write("seed,neural_mrr,ta_sdm_mrr,content_mrr,neural_r5,ta_sdm_r5,content_r5\n")
@@ -258,7 +261,11 @@ def main():
             f.write(f"{seed},{all_neural_mrrs[seed]:.4f},{all_ta_mrrs[seed]:.4f},"
                     f"{all_content_mrrs[seed]:.4f},{all_neural_r5[seed]:.4f},"
                     f"{all_ta_r5[seed]:.4f},{all_content_r5[seed]:.4f}\n")
-    print(f"\n[CSV] Written to {out_csv.relative_to(Path.cwd())}")
+    try:
+        rel = out_csv.relative_to(Path.cwd())
+        print(f"\n[CSV] Written to {rel}")
+    except ValueError:
+        print(f"\n[CSV] Written to {out_csv}")
 
 
 if __name__ == '__main__':

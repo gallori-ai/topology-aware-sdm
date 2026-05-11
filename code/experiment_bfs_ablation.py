@@ -23,7 +23,7 @@ from collections import defaultdict
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
-from sdm_benchmark import load_graph
+from topology_aware_sdm import load_graph
 
 try:
     sys.stdout.reconfigure(encoding='utf-8')
@@ -159,7 +159,11 @@ def main():
     print("Testing: is CTQW contribution > simple baselines on same subgraph?")
     print("=" * 65)
 
-    nodes, edges = load_graph()
+    repo_root = Path(__file__).parent.parent
+    nodes, edges = load_graph(
+        str(repo_root / 'data' / 'graph.jsonl'),
+        str(repo_root / 'data' / 'edges.jsonl'),
+    )
     print(f"\nGraph: {len(nodes)} nodes, {len(edges)} edges")
 
     # Build neighbors
@@ -290,14 +294,18 @@ def main():
         print("CTQW and BFS-distance are close; CTQW advantage is small but positive.")
 
     # Write CSV
-    out_csv = Path(__file__).parent.parent.parent / 'knowledge/papers/series-DISC-374/public-release/data/bfs-ablation-m1.csv'
+    out_csv = repo_root / 'data' / 'bfs-ablation-m1.csv'
     out_csv.parent.mkdir(parents=True, exist_ok=True)
     with open(out_csv, 'w', encoding='utf-8') as f:
         f.write("query_idx,bfs_distance_mrr,local_degree_mrr,local_pagerank_mrr,ctqw_mrr\n")
         for i in range(len(methods['ctqw_t0.5'])):
             f.write(f"{i},{methods['bfs_distance'][i]:.4f},{methods['local_degree'][i]:.4f},"
                     f"{methods['local_pagerank'][i]:.4f},{methods['ctqw_t0.5'][i]:.4f}\n")
-    print(f"\n[CSV] Written to {out_csv.relative_to(Path.cwd())}")
+    try:
+        rel = out_csv.relative_to(Path.cwd())
+        print(f"\n[CSV] Written to {rel}")
+    except ValueError:
+        print(f"\n[CSV] Written to {out_csv}")
 
 
 if __name__ == '__main__':
