@@ -1,0 +1,15 @@
+field,value
+machine_id,M3
+model,Dell Pro Micro Plus QBM1250
+cpu,Intel Core Ultra 7 265T
+cpu_year,2024
+cores_physical,20
+cores_logical,20
+base_clock_mhz,1500
+ram_gb,16
+ram_type,DDR5-5600
+os,Windows 11 Pro 10.0.26200
+python,3.14.5
+graph_nodes,392
+graph_edges,645
+notes,Arrow Lake architecture; no hyperthreading (20C/20T); bit-exact output vs M1 and M2

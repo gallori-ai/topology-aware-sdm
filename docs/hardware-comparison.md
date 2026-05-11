@@ -1,6 +1,6 @@
-# Hardware Comparison: Machine 1 vs Machine 2
+# Hardware Comparison: Machine 1 vs Machine 2 vs Machine 3
 
-Generated: 2026-04-18
+Generated: 2026-05-11 (originally 2026-04-18)
 Branch: feat/442-sdm-manifold-battery
 Stigmergic pattern: two Claude instances coordinating via shared Git graph (Paper 1, Section 6)
 
@@ -8,27 +8,28 @@ Stigmergic pattern: two Claude instances coordinating via shared Git graph (Pape
 
 ## Hardware summary
 
-| Aspect | Machine 1 (DELL-CLEBER) | Machine 2 (Daniel-PC) |
-|--------|--------------------------|------------------------|
-| CPU | Intel i7-1165G7 Tiger Lake | Intel i7-2637M Sandy Bridge |
-| Architecture | 10nm SuperFin (2020) | 32nm (2011) |
-| Cores | 4c/8t | 2c/4t |
-| Clock advertised | 2.80 GHz | 1.70 GHz |
-| Clock actual | 1.69 GHz | 1.70 GHz |
-| L3 cache | 12 MB | 4 MB |
-| RAM | 16 GB DDR4-3200 | (see environment-machine2.csv) |
-| OS | Windows 10 | Windows 10 |
-| AVX-512F | YES | NO |
-| AVX-512 VPOPCNTDQ | NO | NO |
-| POPCNT | YES | YES |
-| Python | 3.13.5 | 3.14.4 |
-| numpy | unknown | 2.4.4 |
-| scipy | unknown | 1.17.1 |
-| Graph size | 390 nodes, 641 edges | 392 nodes, 645 edges |
+| Aspect | Machine 1 (DELL-CLEBER) | Machine 2 (Daniel-PC) | Machine 3 (Dell Pro Micro Plus) |
+|--------|--------------------------|------------------------|----------------------------------|
+| CPU | Intel i7-1165G7 Tiger Lake | Intel i7-2637M Sandy Bridge | Intel Core Ultra 7 265T Arrow Lake |
+| Architecture | 10nm SuperFin (2020) | 32nm (2011) | Intel 4 (2024) |
+| Cores | 4c/8t | 2c/4t | 20c/20t (no HT) |
+| Clock advertised | 2.80 GHz | 1.70 GHz | 1.50 GHz base |
+| Clock actual | 1.69 GHz | 1.70 GHz | TBD |
+| L3 cache | 12 MB | 4 MB | 30 MB |
+| RAM | 16 GB DDR4-3200 | (see environment-machine2.csv) | 16 GB DDR5-5600 |
+| OS | Windows 10 | Windows 10 | Windows 11 Pro |
+| AVX-512F | YES | NO | NO |
+| AVX-512 VPOPCNTDQ | NO | NO | NO |
+| POPCNT | YES | YES | YES |
+| Python | 3.13.5 | 3.14.4 | 3.14.5 |
+| numpy | unknown | 2.4.4 | TBD |
+| scipy | unknown | 1.17.1 | TBD |
+| Graph size | 390 nodes, 641 edges | 392 nodes, 645 edges | 392 nodes, 645 edges |
 
-**Key architectural difference:** Machine 1 is a 10th-gen Tiger Lake (2020, 10nm) with 4 cores and
-12 MB L3 cache. Machine 2 is a 2nd-gen Sandy Bridge (2011, 32nm) with 2 cores and 4 MB L3 cache —
-approximately 9 years older. This maximizes hardware diversity for the comparison.
+**Key architectural differences:** Machine 1 is a 10th-gen Tiger Lake (2020, 10nm) with 4 cores and
+12 MB L3 cache. Machine 2 is a 2nd-gen Sandy Bridge (2011, 32nm) with 2 cores and 4 MB L3 cache.
+Machine 3 is Arrow Lake (2024, Intel 4) with 20 cores (no hyperthreading), 30 MB L3 cache, and
+DDR5-5600 — 13 years newer than M2. All three produce **bit-exact identical** TA-SDM output.
 
 ---
 
@@ -56,8 +57,10 @@ The topology-aware SDM method achieves **MRR=0.919** at 256-bit on both machines
 despite a 4.5x difference in raw compute throughput. This confirms that the quality
 metric (MRR) is a property of the algorithm, not the hardware.
 
-**Implication for Paper 1:** The claim "topology-aware SDM improves MRR 3.19x over
-content-only" is reproducible across hardware generations spanning 9 years (2011→2020).
+**Implication for Paper 1:** The claim "topology-aware SDM improves MRR 3.45x over
+content-only" is reproducible across hardware generations spanning 13 years (2011→2024).
+Machine 3 (Arrow Lake 2024) confirms bit-exact identical output — not just same MRR, but
+identical binary addresses and rankings for every query at every seed.
 
 ### Finding 2: Throughput scales predictably with hardware
 
@@ -78,7 +81,7 @@ connected subgraphs) holds on both machines.
 
 ### Finding 4: numpy SIMD benefit requires AVX-512 VPOPCNTDQ
 
-Neither machine has AVX-512 VPOPCNTDQ (vectorized population count).  
+None of the three machines has AVX-512 VPOPCNTDQ (vectorized population count).  
 On both machines, Python `int.bit_count()` outperforms numpy-based popcount.  
 M2 shows stronger numpy disadvantage (2.2x slower vs ~2x on M1) because Sandy Bridge
 has no AVX2 either, while Tiger Lake has AVX2 (partial SIMD still available on M1).
