@@ -2,8 +2,8 @@
 
 **Autor:** Cleber Barcelos Costa (Gallori AI)
 **ORCID:** 0009-0000-5172-9019
-**Data:** 2026-04-18
-**Versão:** 1.0
+**Data:** 2026-05-11
+**Versão:** 1.1
 **DOI:** [10.5281/zenodo.19645323](https://doi.org/10.5281/zenodo.19645323)
 **Código:** https://github.com/gallori-ai/topology-aware-sdm
 **Licença:** CC-BY-4.0 (paper) · MIT (código)
@@ -125,7 +125,7 @@ distância nesse regime (ver Seção 5.4 e Seção 7).
 
 **C3 — Uma bateria empírica sistemática** de oito experimentos sondando a sensibilidade
 do método a hiperparâmetros, alternativas de cinco tradições de pesquisa vizinhas, e
-reprodutibilidade em duas gerações de CPU separadas por nove anos.
+reprodutibilidade em três gerações de CPU abrangendo treze anos.
 
 ### 1.4 Sumário dos resultados
 
@@ -514,8 +514,16 @@ do artigo.
 - Windows 10, Python 3.14.4, numpy 2.4.4, scipy 1.17.1
 - POPCNT: sim; AVX2: não; AVX-512F: não; AVX-512 VPOPCNTDQ: não.
 
-Essas duas máquinas abrangem 9 anos de evolução arquitetural de CPU. Especificações
-completas de hardware estão em `data/environment-m1.csv` e `data/environment-m2.csv`
+Máquina 3 (Arrow Lake, 2024):
+- Dell Pro Micro Plus QBM1250
+- Intel Core Ultra 7 265T @ 1.50 GHz base (boost ~4.8 GHz), 20 núcleos e 20 threads
+  (sem hyperthreading), cache L3 30 MB
+- 16 GB DDR5-5600
+- Windows 11 Pro, Python 3.14.5
+- POPCNT: sim; AVX2: sim; AVX-512F: não; AVX-512 VPOPCNTDQ: não.
+
+Essas três máquinas abrangem 13 anos de evolução arquitetural de CPU. Especificações
+completas de hardware estão em `data/environment-m1.csv`, `data/environment-m2.csv` e `data/environment-m3.csv`
 no repositório acompanhante.
 
 ### 4.5 Reprodutibilidade
@@ -591,7 +599,8 @@ abaixo de 0.85.
 
 ### 5.2 Ablação de dimensionalidade
 
-Mantendo todos os outros parâmetros fixos, variando a dimensão do endereço d:
+Mantendo todos os outros parâmetros fixos, variando a dimensão do endereço d
+(Protocolo A, seed único=0):
 
 | d (bits) | MRR | Recall@5 | Armazenamento (bytes) |
 |----------|-----|----------|------------------------|
@@ -603,7 +612,11 @@ Mantendo todos os outros parâmetros fixos, variando a dimensão do endereço d:
 
 O ponto ótimo é d = 256 bits. Dimensões menores (d = 128) perdem ligeiramente em
 ambas as métricas. Dimensões maiores (d ≥ 512) não fornecem melhoria em MRR neste
-conjunto de dados. Comparado a um típico embedding neural float32 de 1536 dimensões
+conjunto de dados. **Nota de implementação:** nosso SimHash usa saídas SHA-256, que
+produzem 256 bits independentes por par palavra-seed; posições de bit além de 256
+são cíclicas (`b mod 256`), portanto d > 256 reutiliza os mesmos bits de hash. O
+platô em d = 256 é um teto de implementação, não uma observação específica do
+dataset. Comparado a um típico embedding neural float32 de 1536 dimensões
 (6144 bytes), nossos endereços de 256 bits são 192× menores ao mesmo tempo em que
 superam nessa tarefa.
 
@@ -727,9 +740,11 @@ que a Máquina 1).
 | **CTQW N=50 MRR** | **1.000** | **1.000** |
 | CTQW N=200 MRR | 0.975 | 1.000 |
 
-O MRR em d = 256 é **idêntico** em duas gerações de CPU separadas por nove anos,
-apesar de diferença de 4.5× em throughput bruto de Hamming (6.8 M/s vs 1.5 M/s). Isso
-confirma que a qualidade da recuperação é algorítmica e não dependente de hardware.
+O MRR em d = 256 é **bit-a-bit idêntico** em três gerações de CPU abrangendo treze
+anos, apesar de diferenças de até 4.5× em throughput bruto de Hamming. A Máquina 3
+(Arrow Lake, 20 núcleos, DDR5-5600, Python 3.14.5) produz os mesmos endereços binários
+e rankings que as Máquinas 1 e 2 para cada consulta em cada seed. Isso confirma que a
+qualidade da recuperação é algorítmica e não dependente de hardware.
 
 ### 6.2 Escala de throughput
 
@@ -759,7 +774,7 @@ CPython já usa.
 
 ### 6.4 Linha de base somente-conteúdo deslocada pelo crescimento do grafo
 
-A linha de base somente-conteúdo deslocou-se de MRR = 0.353 na Máquina 1 (392 nós)
+A linha de base somente-conteúdo deslocou-se de MRR = 0.353 na Máquina 1 (390 nós)
 para MRR = 0.288 na Máquina 2 (grafo observado em 392 nós). Esta é uma sensibilidade
 ao tamanho do grafo: com dois nós a mais anexados entre sessões, a recuperação no
 primeiro rank do método somente-conteúdo degrada. Crucialmente, o TA-SDM absorve esse
@@ -774,6 +789,10 @@ Relatamos quatro resultados onde suposições comuns de tradições de pesquisa 
 mostraram-se falsas em nossa configuração. Esses resultados negativos são de carga:
 eles restringem o espaço de desenho e explicam por que a configuração vencedora (Seção
 3) não é a extrapolação óbvia de qualquer tradição única.
+
+Todos os experimentos nesta seção utilizam o Protocolo A (seed único=0, 50 consultas)
+para consistência com o framework de ablação. Resultados estatísticos multi-seed para
+a comparação principal estão reportados na Seção 5.1 Protocolo B.
 
 ### 7.1 Enriquecimento topológico multi-salto dilui o sinal
 
@@ -1025,6 +1044,6 @@ Ver `references.bib` para entradas BibTeX completas. Citações chave:
 
 ---
 
-*Versão 1.0, submetido em 2026-04-18.*
+*Versão 1.1, atualizado em 2026-05-11. Submissão original 2026-04-18.*
 *Correspondência: Cleber Barcelos Costa, Gallori AI, Betim, Minas Gerais, Brasil.*
 *ORCID: 0009-0000-5172-9019.*

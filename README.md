@@ -13,18 +13,19 @@
 
 ## Key results at a glance
 
-On a 392-node heterogeneous typed knowledge graph:
+On a 392-node heterogeneous typed knowledge graph (10-seed statistical protocol):
 
-| Method | MRR | Recall@5 | Storage |
-|--------|-----|----------|---------|
-| Content-only SimHash (baseline) | 0.353 | 0.133 | 32 B/node |
-| **Topology-Aware SDM (ours)** | **0.919** | **0.652** | **32 B/node** |
-| **TA-SDM + classical quantum walk refinement** | **1.000** | **0.753** | 32 B + O(M²) |
+| Method | MRR (mean ± std) | Recall@5 | Storage |
+|--------|------------------|----------|---------|
+| Content-only SimHash (baseline) | 0.265 ± 0.046 | 0.121 ± 0.019 | 32 B/node |
+| Neural 384d (all-MiniLM-L6-v2) | 0.429 ± 0.049 | 0.304 ± 0.051 | 1,536 B/node |
+| **Topology-Aware SDM (ours)** | **0.914 ± 0.038** | **0.676 ± 0.037** | **32 B/node** |
 
-- **2.61× MRR improvement** over content-only hashing (full graph)
+- **3.45× MRR improvement** over content-only hashing (paired t = 41.78, p < 0.001)
+- **2.13× MRR improvement** over neural embedding baseline (paired t = 30.65, p < 0.001)
 - **Near-perfect first-rank retrieval** (MRR=1.000) on 50-node *local* subgraphs via classical quantum walk
 - **Zero** neural training, GPU, embedding API, or quantum hardware required
-- **Identical MRR** reproduced on two CPU generations (Sandy Bridge 2011, Tiger Lake 2020)
+- **Bit-exact identical output** reproduced across three CPU generations spanning 13 years (Sandy Bridge 2011, Tiger Lake 2020, Arrow Lake 2024)
 - **192× smaller** than 1536-dim float32 neural embeddings
 - **Python standard library** only for the core algorithm
 
@@ -54,7 +55,7 @@ The full algorithm is under 200 lines of Python, fits in `code/topology_aware_sd
 - **Exact compositional queries.** `unbind(bind(A, B), A) = B` with zero bit errors — a capability absent from float-embedding systems.
 - **Hardware-aligned.** Uses CPU cache hierarchy and hardware POPCNT instruction (via Python's `int.bit_count()`) — no special hardware needed.
 - **Training-free.** No gradient descent, no neural model, no data labeling. The address is computed in closed form from content + graph topology.
-- **Multi-architecture validated.** MRR = 0.919 reproduced identically on a 2011 Sandy Bridge laptop and a 2020 Tiger Lake laptop.
+- **Multi-architecture validated.** Bit-exact identical output reproduced across three CPU generations: Sandy Bridge (2011), Tiger Lake (2020), and Arrow Lake (2024) — spanning 13 years, three memory generations (DDR3/DDR4/DDR5), and three Python versions (3.13.5/3.14.4/3.14.5).
 
 ## Repository structure
 
@@ -68,18 +69,28 @@ topology-aware-sdm/
 ├── paper/
 │   ├── paper-en.md           ← full paper (English)
 │   ├── paper-pt.md           ← full paper (Portuguese)
+│   ├── paper-en.pdf          ← PDF export (English)
+│   ├── slr.md                ← extended systematic literature review
 │   └── references.bib        ← bibliography
 ├── code/
 │   ├── topology_aware_sdm.py ← core algorithm (standalone)
 │   ├── quantum_walk.py       ← CTQW refinement (scipy-based)
-│   └── benchmark.py          ← reproduces all paper results
+│   ├── benchmark.py          ← reproduces all paper results
+│   ├── experiment_multiseed.py     ← 30-seed statistical analysis (v1.1)
+│   ├── experiment_neural_baseline.py ← neural embedding comparison
+│   └── experiment_bfs_ablation.py  ← BFS vs CTQW ablation
 ├── data/
 │   ├── graph.jsonl           ← 392-node heterogeneous knowledge graph
 │   ├── edges.jsonl           ← 645 typed edges
+│   ├── multiseed-public.csv  ← 30-seed MRR/Recall results
+│   ├── multiseed-m1.csv      ← 10-seed results (Machine 1 graph)
+│   ├── neural-baseline-m1.csv ← neural vs TA-SDM comparison
+│   ├── bfs-ablation-m1.csv   ← BFS vs CTQW ablation results
 │   ├── measurements-m1.csv   ← Machine 1 (Tiger Lake) measurements
 │   ├── measurements-m2.csv   ← Machine 2 (Sandy Bridge) measurements
 │   ├── environment-m1.csv    ← Machine 1 hardware spec
-│   └── environment-m2.csv    ← Machine 2 hardware spec
+│   ├── environment-m2.csv    ← Machine 2 hardware spec
+│   └── environment-m3.csv    ← Machine 3 hardware spec
 └── docs/
     ├── reproduction.md       ← step-by-step reproduction guide
     └── hardware-comparison.md ← multi-architecture findings
@@ -92,9 +103,9 @@ If you use this work, please cite:
 ```bibtex
 @misc{barceloscosta2026tasdm,
   author       = {Barcelos Costa, Cleber},
-  title        = {{Perfect Knowledge Graph Retrieval via Hybrid
-                  Binary SDM and Classical Quantum Walk: A Multi-
-                  Architecture Empirical Study}},
+  title        = {{Topology-Aware Binary SDM for Knowledge Graph
+                  Retrieval: A Multi-Architecture Empirical Study
+                  with Neural Baseline and Quantum Walk Analysis}},
   year         = {2026},
   publisher    = {Zenodo},
   doi          = {10.5281/zenodo.19645323},
@@ -161,23 +172,24 @@ python code/quantum_walk.py --query-id DISC-374 --subgraph-size 50
 ```
 
 Expected output: the benchmark ends with a summary showing
-`MRR=0.919` (TA-SDM) and `MRR=1.000` (quantum walk at N=50).
+`MRR=0.919` (TA-SDM, seed=33) and `MRR=1.000` (quantum walk at N=50).
+For multi-seed statistical results (v1.1 Protocol B), run `python code/experiment_multiseed.py`.
 
 ## Hardware used for the paper measurements
 
-| | Machine 1 | Machine 2 |
-|-|-----------|-----------|
-| CPU | Intel Core i7-1165G7 (Tiger Lake, 2020) | Intel Core i7-2637M (Sandy Bridge, 2011) |
-| Cores | 4c / 8t | 2c / 4t |
-| L3 cache | 12 MB | 4 MB |
-| RAM | 16 GB DDR4-3200 | 12 GB DDR3-1333 |
-| AVX-512F | yes | no |
-| AVX-512 VPOPCNTDQ | **no** | no |
-| POPCNT | yes | yes |
-| Python | 3.13.5 | 3.14.4 |
-| OS | Windows 11 | Windows 10 |
+| | Machine 1 | Machine 2 | Machine 3 |
+|-|-----------|-----------|-----------|
+| CPU | Intel Core i7-1165G7 (Tiger Lake, 2020) | Intel Core i7-2637M (Sandy Bridge, 2011) | Intel Core Ultra 7 265T (Arrow Lake, 2024) |
+| Cores | 4c / 8t | 2c / 4t | 20c / 20t |
+| L3 cache | 12 MB | 4 MB | 30 MB |
+| RAM | 16 GB DDR4-3200 | 12 GB DDR3-1333 | 16 GB DDR5-5600 |
+| AVX-512F | yes | no | no |
+| AVX-512 VPOPCNTDQ | **no** | no | no |
+| POPCNT | yes | yes | yes |
+| Python | 3.13.5 | 3.14.4 | 3.14.5 |
+| OS | Windows 11 | Windows 10 | Windows 11 Pro |
 
-**Nine years** of CPU architectural evolution separates these two machines. The TA-SDM MRR is **identical** (0.919) on both.
+**Thirteen years** of CPU architectural evolution separates the oldest and newest machines. The TA-SDM output is **bit-exact identical** on all three — not merely similar MRR, but the same binary addresses and rankings for every query at every seed.
 
 ## License
 
